@@ -102,5 +102,5 @@
   },
   "include": [
     "./src/**/*.ts"
-, "src/Pages/Front/Home/Components/Header.tsx"  ]
+   ]
 }

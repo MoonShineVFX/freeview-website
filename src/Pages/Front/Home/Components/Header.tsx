@@ -1,29 +1,49 @@
 import React from 'react'
-import ReactPlayer from 'react-player'
-import { motion } from "framer-motion"
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from "swiper";
+import 'swiper/css';
+import "swiper/css/pagination";
 function Header() {
+  const imgs = ['img.jpeg','img.jpeg','img.jpeg','img.jpeg']
   return (
-    <div id="header" className='relative w-full h-[68vh] bg-no-repeat bg-center bg-cover xs:h-[35vh]'>
-      <div className="vimeo-wrapper">
-        {/* <iframe src="https://player.vimeo.com/video/706129402?background=1&autoplay=1&loop=1&byline=0&title=0"
-                frameBorder="0" allowFullScreen></iframe> */}
-        <ReactPlayer
-          url='https://vimeo.com/734274794'
-          className='react-player'
-          playing
-          muted
-          loop
-          width='100vw'
-          height='56.25vw'
-          config={{ vimeo: { playerOptions: { background: true }}}}
-        />
-      </div>
-      <div className="caption absolute  inset-0 flex flex-col justify-center items-center -translate-y-20">
-          <img src={ process.env.PUBLIC_URL + '/images/MS_logo.svg'} alt="" className='w-1/3' />
-        {/* <div className="title">MOONSHINE</div> */}
-        {/* <button type='button' className="header_playbtn" >play video</button> */}
-      </div>
-    
+    <div id="header" className='relative w-full '>
+      <Swiper
+        spaceBetween={30}
+        slidesPerView={1.8}
+        centeredSlides={true}
+        loop={true}
+        pagination={true} modules={[Pagination]} 
+        onSlideChange={() => console.log('slide change')}
+        onSwiper={(swiper) => console.log(swiper)}
+      > 
+        {
+          imgs.map((item,index)=>{
+            return(
+              <SwiperSlide key={index} className="relative">
+                <div className='w-full h-[485px] mx-auto  relative '>
+                  {/* <img src={process.env.PUBLIC_URL+'/images/'+item} alt="" className='rel'/> */}
+                  <div className='w-full h-full bg-no-repeat bg-center bg-cover relative '
+                    style={{backgroundImage: `url(${process.env.PUBLIC_URL + '/images/' + item})`}}> 
+                    <div className='absolute inset-0 bg-gradient-to-t from-black  z-10'></div>
+                    {/* <div className='absolute inset-0 bg-[#00000060] z-10'></div> */}
+                  </div>
+                  <div className=' absolute bottom-16 left-16 z-10 '>
+                    <div className='text-3xl font-normal mb-2'>奇異博士五</div>
+                    <div className='text-zinc-200 text-sm font-light leading-6'>
+                      <div>Everything Everywhere All at Once</div>
+                      <div>2022．139分鐘 ．4K畫質</div>
+                    </div>
+
+                  </div>
+                </div>
+
+              </SwiperSlide>
+            )
+          })
+        }
+
+      </Swiper>
     </div>
   )
 }
