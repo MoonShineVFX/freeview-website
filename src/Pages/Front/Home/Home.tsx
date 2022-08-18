@@ -6,7 +6,29 @@ import ProgramList from './Components/ProgramList'
 
 
 function Home() {
-  const imgs = ['img.jpeg','img.jpeg','img.jpeg','img.jpeg','img.jpeg','img.jpeg','img.jpeg','img.jpeg','img.jpeg','img.jpeg','img.jpeg','img.jpeg','img.jpeg']
+  const imgs = [
+    {
+      "id":"1",
+      "img":'img.jpeg'},
+    {
+      "id":"2",
+      "img":'img.jpeg'},
+    {
+      "id":"3",
+      "img":'img.jpeg'},
+    {
+      "id":"4",
+      "img":'img.jpeg'},
+    {
+      "id":"5",
+      "img":'img.jpeg'},
+    {
+      "id":"6",
+      "img":'img.jpeg'},
+    {
+      "id":"7",
+      "img":'img.jpeg'},
+  ]
   return (
     <section id="home">
       <Header />

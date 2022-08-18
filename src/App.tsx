@@ -1,4 +1,5 @@
 import './App.css';
+import React from 'react';
 import { BrowserRouter , Routes, Route} from 'react-router-dom';
 
 import PublicPageLayout from './Layouts/PublicPageLayout'
@@ -6,13 +7,21 @@ import PublicPageLayout from './Layouts/PublicPageLayout'
 
 //pages
 import Home from './Pages/Front/Home/Home';
+import Watch from './Pages/Front/Watch/Watch';
+import Newest from './Pages/Front/Newest/Newest';
+import Videos from './Pages/Front/Videos/Videos';
 
+//data
+import {fakeData} from './Helper/HelperComponents'
 function App() {
   return (
     <BrowserRouter>
       <Routes> 
             <Route path="/"  element={ <PublicPageLayout/>}>
               <Route path="" element={<Home />} />
+              <Route path="newest" element={<Newest data={fakeData} />} />
+              <Route path="videos" element={<Videos data={fakeData}/>} />
+              <Route path="watch" element={<Watch />} />
 
 
             </Route>
