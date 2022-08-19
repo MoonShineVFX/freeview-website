@@ -8,6 +8,7 @@ import PublicPageLayout from './Layouts/PublicPageLayout'
 //pages
 import Home from './Pages/Front/Home/Home';
 import Watch from './Pages/Front/Watch/Watch';
+import WatchVideos from './Pages/Front/Watch/ＷatchVideos'
 import Newest from './Pages/Front/Newest/Newest';
 import Videos from './Pages/Front/Videos/Videos';
 
@@ -19,9 +20,10 @@ function App() {
       <Routes> 
             <Route path="/"  element={ <PublicPageLayout/>}>
               <Route path="" element={<Home />} />
-              <Route path="newest" element={<Newest data={fakeData} />} />
-              <Route path="videos" element={<Videos data={fakeData}/>} />
+              <Route path="newest" element={<Newest data={fakeData} type='stream' />} />
+              <Route path="videos" element={<Videos data={fakeData}/>} type='video' />
               <Route path="watch" element={<Watch />} />
+              <Route path="WatchVideos" element={<WatchVideos />} />
 
 
             </Route>

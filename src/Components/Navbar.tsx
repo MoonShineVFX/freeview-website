@@ -29,7 +29,7 @@ function Navbar({data , toggleTrueFalse}) {
             )
           }): ""
         }
-        <li className='ml-auto w-2/6'>
+        <li className='ml-auto w-[300px]'>
           <form>   
               <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only ">Search</label>
               <div className="relative">
