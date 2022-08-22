@@ -22,6 +22,20 @@ export interface Movie {
   vote_count: number;
 }
 
+export interface Video {
+  id:string;
+  title : string;
+  category:string;
+  img:string;
+  time_added:string;
+  video_url:string;
+  display:string;
+  intro:string;
+  total_duration:string;
+
+
+
+}
 export interface Element {
   type:
     | 'Bloopers'

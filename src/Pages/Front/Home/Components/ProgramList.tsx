@@ -8,7 +8,7 @@ function ProgramList(props: {title:string, data:any , type:string}) {
 					{
 						props.data.map((item,index)=>{
 							return(
-								<div className=' aspect-[4/6] w-full bg-cover bg-no-repeat bg-center transition-all cursor-pointer brightness-90  hover:brightness-110'
+								<div key={item.id} className=' aspect-[4/6] w-full bg-cover bg-no-repeat bg-center transition-all cursor-pointer brightness-90  hover:brightness-110'
 									// style={{backgroundImage: `url(${process.env.PUBLIC_URL + '/images/' + item})`}}
 								>	
 									<Link to={(props.type === 'stream' ? '/watch?v=' +item.id : '/watchvideos?v='+item.id)}>
