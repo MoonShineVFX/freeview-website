@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link  } from "react-router-dom";
 import StaticHeader from '../Home/Components/StaticHeader'
-function Newest(props:{type:string ,data:any}) {
+function Newest(props:{types:string, data:any}) {
   return (
     <div >
 			<StaticHeader />
@@ -12,7 +12,7 @@ function Newest(props:{type:string ,data:any}) {
 					{
 						props.data.map((item,index)=>{
 							return(
-								<div className='group aspect-video w-full bg-cover bg-no-repeat bg-center transition-all cursor-pointer brightness-90  hover:brightness-110'
+								<div key={index} className='group aspect-video w-full bg-cover bg-no-repeat bg-center transition-all cursor-pointer brightness-90  hover:brightness-110'
 									// style={{backgroundImage: `url(${process.env.PUBLIC_URL + '/images/' + item})`}}
 								>	
 									<Link to={ '/watch?v='+item.id}>

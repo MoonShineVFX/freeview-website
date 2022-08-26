@@ -27,14 +27,14 @@ function App() {
       <Routes> 
             <Route path="/"  element={ <PublicPageLayout/>}>
               <Route path="" element={<Home />} />
-              <Route path="newest" element={<Newest data={fakeData} type='stream' />} />
-              <Route path="videos" element={<Videos data={fakeData}/>} type='video' />
+              <Route path="newest" element={<Newest data={fakeData} types='stream' />} />
+              <Route path="videos" element={<Videos data={fakeData}/>} types='video' />
             
 
 
             </Route>
             <Route path="/"  element={ <PlayPageLayout/>}> 
-              <Route path="watch" element={<Watch />} />
+              {/* <Route path="watch" element={<Watch />} /> */}
               <Route path="WatchVideos" element={<WatchVideos />} />
             </Route>
             
