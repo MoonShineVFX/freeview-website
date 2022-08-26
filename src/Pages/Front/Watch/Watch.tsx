@@ -5,10 +5,11 @@ import {MultiViewsDumbPlayer, MultiViewsDumbPlayerCore} from 'multi-views-dumb-p
 
 function Watch() {
 	const MultiViewsDumbPlayerSettings = {
-		url: 'an-dance.mp4', // an-dance.mp4 (vod) or an-dance-low (live)
+		url: 'an-dance-low', // an-dance.mp4 (vod) or an-dance-low (live)
+		host: 'https://mv.moonshine.tw/stream/',
 		columnCount: 4,
 		rowCount: 4,
-		core: MultiViewsDumbPlayerCore.TILES, // TILES for vod, MSE for live
+		core: MultiViewsDumbPlayerCore.MEDIA_SOURCE_EXTENSION, // TILES for vod, MSE for live
 		// styles: {
 		// 	main: {paddingLeft: '20px'},
 		// 	playback: {borderRadius: '18px'},
