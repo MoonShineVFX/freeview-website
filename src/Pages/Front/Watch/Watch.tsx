@@ -1,21 +1,36 @@
 import React from 'react'
-import ReactPlayer from 'react-player';
+// import ReactPlayer from 'react-player';
+import {MultiViewsDumbPlayer, MultiViewsDumbPlayerCore} from 'multi-views-dumb-player';
+
+
 function Watch() {
+	const MultiViewsDumbPlayerSettings = {
+		url: 'an-dance.mp4', // an-dance.mp4 (vod) or an-dance-low (live)
+		columnCount: 4,
+		rowCount: 4,
+		core: MultiViewsDumbPlayerCore.TILES, // TILES for vod, MSE for live
+		// styles: {
+		// 	main: {paddingLeft: '20px'},
+		// 	playback: {borderRadius: '18px'},
+		// 	trackControl: {marginTop: '30px', height: '48px'}
+		// },
+		// colors: {
+		//   highlight: 'yellow',
+		//   main: 'red',
+		//   sub: 'blue',
+		//   base: 'green'
+		// }
+	}
+
   return (
     <div className='w-full flex mx-auto mt-15 overflow-hidden h-[calc(100vh-84px)]'>
 			<div className='streamingvieos w-full grow'>
-				<div className='  relative aspect-video flex flex-col'>
-					<ReactPlayer
-						url={`https://www.youtube.com/watch?v=gQlMMD8auMs`}
-						width="100%"
-						height="100%"
-						playing
-						controls
-					/>
-					
-				</div>
-				<div className='bg-zinc-800 w-full h-auto flex justify-center items-center  box-border grow'> View 360 Controller</div>
+				{/*<div className='relative aspect-video flex flex-col'>*/}
 
+				<MultiViewsDumbPlayer {...MultiViewsDumbPlayerSettings} />
+
+				{/*</div>*/}
+				{/*<div className='bg-zinc-800 w-full h-auto flex justify-center items-center  box-border grow'> View 360 Controller</div>*/}
 			</div>
 			<div className='chat bg-black w-[25%] overflow-y-auto flex flex-col' >
 				<div className='text-zinc-500 h-8 text-center leading-4 tracking-wide font-semibold border-b border-zinc-500  '>
