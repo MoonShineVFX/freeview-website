@@ -34,7 +34,7 @@ function App() {
 
             </Route>
             <Route path="/"  element={ <PlayPageLayout/>}> 
-              {/* <Route path="watch" element={<Watch />} /> */}
+              <Route path="watch" element={<Watch />} />
               <Route path="WatchVideos" element={<WatchVideos />} />
             </Route>
             
