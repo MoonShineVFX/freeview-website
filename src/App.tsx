@@ -3,6 +3,7 @@ import React from 'react';
 import { BrowserRouter , Routes, Route} from 'react-router-dom';
 
 import PublicPageLayout from './Layouts/PublicPageLayout'
+import PlayPageLayout from './Layouts/PlayPageLayout';
 import DashboardPageLayout from './Layouts/DashboardPageLayout'
 //route
 import {AuthProvider} from './Components/Auth'
@@ -28,10 +29,13 @@ function App() {
               <Route path="" element={<Home />} />
               <Route path="newest" element={<Newest data={fakeData} type='stream' />} />
               <Route path="videos" element={<Videos data={fakeData}/>} type='video' />
+            
+
+
+            </Route>
+            <Route path="/"  element={ <PlayPageLayout/>}> 
               <Route path="watch" element={<Watch />} />
               <Route path="WatchVideos" element={<WatchVideos />} />
-
-
             </Route>
             
             <Route path="admin"  element={ <DashboardPageLayout/>}>

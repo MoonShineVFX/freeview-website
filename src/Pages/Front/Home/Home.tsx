@@ -30,11 +30,11 @@ function Home() {
       "img":'img.jpeg'},
   ]
   return (
-    <section id="home" className='overflow-y-auto max-h-screen min-w-[100%] grow'>
+    <section id="home" className=' pb-44  '>
       <Header />
-      <div className='w-9/12 mx-auto'>
-        <ProgramList title="最近直播"  data={imgs} type='stream' />
-        <ProgramList title="熱門演出(歷史影片)" data={imgs} type='video' />
+      <div className='w-10/12 mx-auto'>
+        <ProgramList title="最近直播"  data={imgs} type='newest' />
+        <ProgramList title="熱門演出(歷史影片)" data={imgs} type='videos' />
       </div>
 
     </section>

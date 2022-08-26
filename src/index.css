@@ -4,14 +4,16 @@
 
 
 body{
-  background: #000;
+  background: #0c0d11;
   color:white;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 .swiper-slide {
   width: 70vw;
 }
-
+.swiper-pagination-bullet-active {
+  background-color: #6EE7B7 !important;
+}
 /*
  *  STYLE 1
  */

@@ -12,12 +12,12 @@ import NavData from '../Components/navbar.json'
 import { RecoilRoot } from 'recoil';
 
 
-function PublicPageLayout() {
+function PlayPageLayout() {
   const {navbar} =NavData
   return (
     <React.Fragment>
       <RecoilRoot>
-      <Navbar data={navbar} types='home'/>
+      <Navbar data={navbar} types='play' />
       {/* <MobileNavbar data={navbar} /> */}
       <Outlet />
       {/* <Footer footerData={footerData} socialmedia={socialmedia}/> */}
@@ -26,4 +26,4 @@ function PublicPageLayout() {
   )
 }
 
-export default PublicPageLayout
+export default PlayPageLayout

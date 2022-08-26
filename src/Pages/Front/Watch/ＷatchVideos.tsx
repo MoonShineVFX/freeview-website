@@ -2,7 +2,7 @@ import React from 'react'
 import ReactPlayer from 'react-player';
 function ＷatchVideos() {
   return (
-    <div className='w-full flex flex-col mx-auto mt-15 overflow-y-auto h-[calc(100vh-84px)]'>
+    <div className='w-full flex flex-col mx-auto mt-15  h-[calc(100vh-84px)] '>
 
 				<div className='streamingvieos w-full grow'>
 					<div className='  relative aspect-video flex flex-col'>
