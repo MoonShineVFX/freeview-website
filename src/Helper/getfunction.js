@@ -1,6 +1,6 @@
 // firebase 資料庫連線
 import db from '../firebaseConfig/firebase'
-import {collection, query,  getDocs,orderBy,where,limit,limitToLast,startAfter,endBefore,addDoc,deleteDoc,doc,updateDoc} from "firebase/firestore"
+import {collection, query,  getDocs,orderBy,where,limit,limitToLast,startAfter,endBefore,addDoc,deleteDoc,doc,updateDoc,onSnapshot} from "firebase/firestore"
 import { getStorage, ref, getDownloadURL,  } from "firebase/storage";
 import { async } from '@firebase/util';
 const storage = getStorage();
@@ -310,6 +310,25 @@ export const updateService = async (uid,currentData,callback)=>{
   const serviceDoc = doc(db , 'service' , uid)
   try {
     await updateDoc( serviceDoc ,currentData)
+    callback('success')
+  } catch (error) {
+    callback(error)
+  }
+}
+
+
+//Chat room Message
+export const getMessage = async (callback) =>{
+  const q = query(collection(db, "message"),orderBy('createdAt' , 'desc'),limit(100))
+  const unsubscribe = await onSnapshot(q,(querySnapshot)=>{
+      const data =querySnapshot.docs.map(doc=>({...doc.data(),id:doc.id}))
+      callback(data)
+  });
+}
+export const createMessage = async (data,callback)=>{
+  const collectionRef = collection(db ,"message")
+  try {
+    await addDoc(collectionRef,data)
     callback('success')
   } catch (error) {
     callback(error)

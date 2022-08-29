@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
-import {firebaseConfig} from './firebaseConfig'
 import { getStorage } from "firebase/storage";
+import {firebaseConfig} from './firebaseConfig'
+
 
 
 // Initialize Firebase
