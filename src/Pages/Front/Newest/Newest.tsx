@@ -8,7 +8,7 @@ function Newest(props:{types:string, data:any}) {
 			<div className='w-10/12 mx-auto pt-20'>
 				<h1 className='text-4xl font-semibold '>今日直播</h1>
 
-				<div className='grid grid-cols-3 gap-8 mt-14'>
+				<div className='grid grid-cols-3 gap-8 mt-14 md:grid-cols-1'>
 					{
 						props.data.map((item,index)=>{
 							return(

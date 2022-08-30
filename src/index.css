@@ -11,6 +11,9 @@ body{
 .swiper-slide {
   width: 70vw;
 }
+.swiper-pagination-bullet{
+  background-color: #6EE7B7 !important;
+}
 .swiper-pagination-bullet-active {
   background-color: #6EE7B7 !important;
 }

@@ -8,7 +8,7 @@ function ProgramList(props: {title:string, data:any , type:string}) {
 					<a href={'/'+props.type} className='text-sm text-zinc-200 py-2 px-3 bg-zinc-800 rounded-lg flex justify-center items-center hover:bg-zinc-10'>更多</a>
 				</div>
         
-				<div className='grid grid-cols-7 gap-5'>
+				<div className='grid grid-cols-7 gap-5 md:grid-cols-2'>
 					{
 						props.data.slice(0, 7).map((item,index)=>{
 							return(
