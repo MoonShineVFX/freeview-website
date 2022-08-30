@@ -4,11 +4,11 @@ import {MultiViewsDumbPlayer, MultiViewsDumbPlayerCore} from 'multi-views-dumb-p
 import Channel from '../../../Components/Chat/Channel';
 function Watch() {
 	const MultiViewsDumbPlayerSettings = {
-		url: 'an-dance-low', // an-dance.mp4 (vod) or an-dance-low (live)
-		host: 'https://mv.moonshine.tw/stream/',
+		url: 'dumb.mp4', // an-dance.mp4 (vod) or an-dance-low (live)
+		host: 'https://mv.moonshine.tw/stream/an-dance-low',
+		core: MultiViewsDumbPlayerCore.TILES, // TILES for vod, MSE for live
 		columnCount: 4,
 		rowCount: 4,
-		core: MultiViewsDumbPlayerCore.MEDIA_SOURCE_EXTENSION, // TILES for vod, MSE for live
 		styles: {
 			main: {paddingLeft: '20px'},
 			playback: {borderRadius: '8px'},
@@ -19,10 +19,9 @@ function Watch() {
 		  main: 'white',
 		  sub: '#6EE7B7',
 		  base: '#475569'
-		}
+		},
+		onVideoPlaying: (videoTime: number) => console.log(videoTime)
 	}
-
-	
 
   return (
     <div className='w-full flex mx-auto mt-15 overflow-hidden h-[calc(100vh-84px)]'>
