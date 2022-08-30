@@ -15,7 +15,6 @@ function Channel(props:{user:string }) {
     e.preventDefault();
     logout();
   }
-
   const onSubmit = data =>{
     const {text} = data
     let currentData = {
@@ -26,14 +25,11 @@ function Channel(props:{user:string }) {
     }
     createMessage(currentData,function(res){
       console.log(res)
-      
     })
     reset()
-      bottomListRef.current.scrollIntoView({ behavior: 'smooth' });
+    bottomListRef.current.scrollIntoView({ behavior: 'smooth' });
 
   };
-  console.log(user)
-  console.log(user.length > 0)
   useEffect(()=>{
 		getMessage((res)=>{
 			console.log(res)
@@ -58,10 +54,6 @@ function Channel(props:{user:string }) {
               ))}
           </ul>
           <div ref={bottomListRef} />
-
-        
-
-        
 
       </div>
       <div className=''>
