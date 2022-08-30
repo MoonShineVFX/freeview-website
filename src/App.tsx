@@ -7,6 +7,7 @@ import PlayPageLayout from './Layouts/PlayPageLayout';
 import DashboardPageLayout from './Layouts/DashboardPageLayout'
 //route
 import {AuthProvider} from './Components/Auth'
+import {ChatuserProvider} from './Components/context/ChatuserProvider'
 // import PublicRoutes from './Routes/PublicRoutes'
 // import ProtectedRoutes from './Routes/ProtectedRoutes'
 
@@ -23,6 +24,7 @@ import {fakeData} from './Helper/HelperComponents'
 function App() {
   return (
     <AuthProvider>
+    <ChatuserProvider>
     <BrowserRouter>
       <Routes> 
             <Route path="/"  element={ <PublicPageLayout/>}>
@@ -55,7 +57,9 @@ function App() {
  
           
       </Routes>
+    
     </BrowserRouter>
+    </ChatuserProvider>
     </AuthProvider>
   );
 }

@@ -1,7 +1,11 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect,useContext} from 'react'
 // import ReactPlayer from 'react-player';
 import {MultiViewsDumbPlayer, MultiViewsDumbPlayerCore} from 'multi-views-dumb-player';
-import Channel from '../../../Components/Chat/Channel';
+
+//chatroom
+import LoginChannel from '../Home/Components/Chat/LoginChannel';
+import Channel from '../Home/Components/Chat/Channel';
+import {ChatuserContext} from '../../../Components/context/ChatuserProvider'
 function Watch() {
 	const MultiViewsDumbPlayerSettings = {
 		url: 'dumb.mp4', // an-dance.mp4 (vod) or an-dance-low (live)
@@ -23,6 +27,8 @@ function Watch() {
 		onVideoPlaying: (videoTime: number) => console.log(videoTime)
 	}
 
+	const { state } = useContext(ChatuserContext);
+
   return (
     <div className='w-full flex mx-auto mt-15 overflow-hidden h-[calc(100vh-84px)]'>
 			<div className='streamingvieos w-full grow'>
@@ -33,7 +39,13 @@ function Watch() {
 				{/*</div>*/}
 				{/*<div className='bg-zinc-800 w-full h-auto flex justify-center items-center  box-border grow'> View 360 Controller</div>*/}
 			</div>
-			<Channel />
+			{
+				!state.isLoggedIn ?
+				<LoginChannel />
+				:
+				<Channel />
+			}
+
 			
 
     </div>
