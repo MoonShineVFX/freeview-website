@@ -138,69 +138,7 @@ export const getNextWorksByCategoryAndLimits = async (cid,callback)=>{
 
 
 
-/**
- * 到 firebase 撈作品資料表 
- * 資料先傳到 mapDataWithImage 處理過圖片路徑再回傳 setWorkData 給網頁用 
- * 條件 display 全部 要給後台用(admin) 
- * **/ 
-export const getAllWorksForDashboard = async (callback)=>{
-  const q = query(collection(db, "data"),orderBy('time_added' , 'desc'),limit(12))
-  const data = await getDocs(q);
 
-  mapDataWithImage('data',data.docs.map(doc=> ({...doc.data(),uid:doc.id})),function(res){
-    callback(res)
-  })
-}
-
-export const getNextWorkForDashboard = async (item , callback) => {
-  const q = query(collection(db, "data"),orderBy('time_added' , 'desc'),startAfter(item.time_added),limit(12))
-  const data = await getDocs(q);
-  mapDataWithImage('data',data.docs.map(doc=> ({...doc.data(),uid:doc.id})),function(res){
-    callback(res)
-  })
-}
-
-export const getPrevWorkForDashboard = async (item , callback) => {
-  const q = query(collection(db, "data"),orderBy('time_added' , 'desc'),endBefore(item.time_added),limitToLast(12))
-  const data = await getDocs(q);
-  mapDataWithImage('data',data.docs.map(doc=> ({...doc.data(),uid:doc.id})),function(res){
-    callback(res)
-  })
-}
-
-export const getSearchWork = async (search , callback)=>{
- //TODO
-}
-
-export const createWork = async (data , callback)=>{
-  const collectionRef = collection(db ,"data")
-  try {
-    await addDoc(collectionRef,data)
-    callback('success')
-  } catch (error) {
-    callback(error)
-  }
-}
-export const deleteWork = async(uid,callback)=>{
-  const workDoc = doc(db , 'data' , uid)
-  
-  try {
-    await deleteDoc(workDoc)
-    callback('success')
-  } catch (error) {
-    callback(error)
-  }
-}
- export const updateWork = async (uid,currentData,callback)=>{
-  const workDoc = doc(db , 'data' , uid)
-   
-    try {
-      await updateDoc( workDoc ,currentData)
-      callback('success')
-    } catch (error) {
-      callback(error)
-    }
- }
 
 
  //admin category
@@ -316,6 +254,95 @@ export const updateService = async (uid,currentData,callback)=>{
   }
 }
 
+/** Freeview Helper function -- start **/
+
+/**
+ * 到 firebase 撈作品資料表 
+ * 資料先傳到 mapDataWithImage 處理過圖片路徑再回傳 setWorkData 給網頁用 
+ * 條件 display 全部 要給後台用(admin) 
+ * **/ 
+export const getAllWorksForDashboard = async (callback)=>{
+  const q = query(collection(db, "data"),orderBy('time_added' , 'desc'),limit(12))
+  const data = await getDocs(q);
+
+  mapDataWithImage('data',data.docs.map(doc=> ({...doc.data(),uid:doc.id})),function(res){
+    callback(res)
+  })
+}
+
+export const getNextWorkForDashboard = async (item , callback) => {
+  const q = query(collection(db, "data"),orderBy('time_added' , 'desc'),startAfter(item.time_added),limit(12))
+  const data = await getDocs(q);
+  mapDataWithImage('data',data.docs.map(doc=> ({...doc.data(),uid:doc.id})),function(res){
+    callback(res)
+  })
+}
+
+export const getPrevWorkForDashboard = async (item , callback) => {
+  const q = query(collection(db, "data"),orderBy('time_added' , 'desc'),endBefore(item.time_added),limitToLast(12))
+  const data = await getDocs(q);
+  mapDataWithImage('data',data.docs.map(doc=> ({...doc.data(),uid:doc.id})),function(res){
+    callback(res)
+  })
+}
+
+export const getSearchWork = async (search , callback)=>{
+ //TODO
+}
+
+
+// 新增作品後會新增一個留言板
+export const createWork = async (data , callback)=>{
+  const collectionRef = collection(db ,"data")
+
+  try {
+    await addDoc(collectionRef,data)
+    callback('success')
+  } catch (error) {
+    callback(error)
+  }
+}
+export const deleteWork = async(uid,callback)=>{
+  const workDoc = doc(db , 'data' , uid)
+  
+  try {
+    await deleteDoc(workDoc)
+    callback('success')
+  } catch (error) {
+    callback(error)
+  }
+}
+ export const updateWork = async (uid,currentData,callback)=>{
+  const workDoc = doc(db , 'data' , uid)
+   
+    try {
+      await updateDoc( workDoc ,currentData)
+      callback('success')
+    } catch (error) {
+      callback(error)
+    }
+ }
+//Msg Board 
+export const createMsgBaord = async (data,callback)=>{
+console.log(data)
+  const msgboardRef = collection(db ,"msg_board")
+  try {
+    await addDoc(msgboardRef,data)
+    callback('success')
+  } catch (error) {
+    callback(error)
+  }
+}
+export const updateMsgBaord = async (uid,currentData,callback)=>{
+  const workDoc = doc(db , 'msg_board' , uid)
+   
+    try {
+      await updateDoc( workDoc ,currentData)
+      callback('success')
+    } catch (error) {
+      callback(error)
+    }
+ }
 
 //Chat room Message
 export const getMessage = async (callback) =>{

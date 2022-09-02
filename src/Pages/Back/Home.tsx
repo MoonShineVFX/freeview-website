@@ -10,12 +10,12 @@ import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css'; 
 
 //helper
-import {getAllWorksForDashboard ,getCategory, getNextWorkForDashboard,getPrevWorkForDashboard,createWork,deleteWork,updateWork} from '../../Helper/getfunction'
+import {getAllWorksForDashboard ,getCategory, getNextWorkForDashboard,getPrevWorkForDashboard,createWork,deleteWork,updateWork,createMsgBaord} from '../../Helper/getfunction'
 import {LoadingAnim} from '../../Helper/HelperComponents'
 //檔案上傳方法
 import { useStorage } from "../../Helper/useStorage";
 
-function Home() {
+function Home(props:{types:string}) {
   const [workData, setWorkData] = useState([]);
   const [categoryData, setCategoryData] = useState([]);
   const [showModal, setShowModal] = useRecoilState(formDisplayState);
@@ -53,8 +53,9 @@ function Home() {
   }
 
   const handleCreateWork = (data) =>{
+    let currentDate = Date.now().toString(36)
     let currentData ={
-      "id": Date.now().toString(36),
+      "id": currentDate,
       "time_added": new Date(+new Date() + 8 * 3600 * 1000).toISOString().replace(/T/, ' ').replace(/\..+/, '')  ,
       "title": data.title,
       "intro": data.intro,
@@ -62,9 +63,19 @@ function Home() {
       "sort_num": data.sort_num ? data.sort_num : '666',
       "display":data.display ,
       "year_of_work":data.yearofwork ? data.yearofwork : '2022',
-      "category":data.category ? data.category : '1'
+      "category":data.category ? data.category : '1',
+      "msg_board_video_id":currentDate
+    }
+    let newboardData = {
+      "id": Date.now().toString(36),
+      "v_id": currentDate,
+      "msg":{}
     }
     createWork(currentData,function(res){
+      console.log(res)
+      fetchWorkDoneFun('新增資料失敗，錯誤訊息:',res)
+    })
+    createMsgBaord(newboardData,function(res){
       console.log(res)
       fetchWorkDoneFun('新增資料失敗，錯誤訊息:',res)
     })
@@ -130,11 +141,12 @@ function Home() {
     });
    
   }
-
+  console.log(props.types)
   useEffect(()=>{
-    // getAllWorksForDashboard((res)=>{
-    //   setWorkData(res)
-    // })
+    getAllWorksForDashboard((res)=>{
+      setWorkData(res)
+      console.log(res)
+    })
     // getCategory((res)=>{
     //   setCategoryData(res)
     // })
@@ -144,7 +156,7 @@ function Home() {
   return (
     <div className='w-full bg-white p-5 text-black relative'>
       <div className='w-full border-b mb-10'>
-        <h1>管理作品</h1>
+        <h1>{props.types === 'history'? '管理歷史影片' : '管理直播影片'}</h1>
       </div>
       <button 
         className='text-xs  rounded-md bg-black text-white py-2 px-6 hover:bg-slate-600'
@@ -166,14 +178,14 @@ function Home() {
               <th className='bg-zinc-100 border-b border-zinc-300 text-left'>編輯</th>
             </tr>
           </thead>
-          {/* <tbody className='divide-y divide-slate-200'>
+          <tbody className='divide-y divide-slate-200'>
             {
               workData ?
               workData.map((item,index)=>{
-                const {uid,id, display, title, time_added,category,sort_num} =item
+                const {uid,id, display, title, time_added,category,sort_num,msg_board_video_id} =item
                 return(
                   <tr className=' hover:bg-zinc-200' key={id+title}>
-                    <td className='p-2 text-xs'>{id}</td>
+                    <td className='p-2 text-xs'>{id} {msg_board_video_id}</td>
                     <td className='p-2 text-xs'>{sort_num}</td>
                     <td className='p-2 text-xs'>{title}</td>
                     <td className='p-2 text-xs'>
@@ -203,7 +215,7 @@ function Home() {
             }
 
           
-          </tbody> */}
+          </tbody> 
         </table>
       </div>
       {showModal && <WorkForm categoryData={categoryData} handleCreateWork={handleCreateWork} handleEditWork={handleEditWork} />}

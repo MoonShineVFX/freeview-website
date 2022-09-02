@@ -30,7 +30,7 @@ function App() {
             <Route path="/"  element={ <PublicPageLayout/>}>
               <Route path="" element={<Home />} />
               <Route path="newest" element={<Newest data={fakeData} types='stream' />} />
-              <Route path="videos" element={<Videos data={fakeData}/>} types='video' />
+              <Route path="videos" element={<Videos data={fakeData} types='video' />  }  />
             
 
 
@@ -41,7 +41,8 @@ function App() {
             </Route>
             
             <Route path="admin"  element={ <DashboardPageLayout/>}>
-              <Route  path="" element={<AdminHome/>} />
+              <Route  path="history" element={<AdminHome types='history'/>} />
+              <Route  path="stream" element={<AdminHome types='stream'/>} />
               {/* <Route  path="category" element={<AdminCateogry/>} /> */}
               {/* <Route  path="award" element={<AdminAward/>} /> */}
               {/* <Route  path="service" element={<AdminServices/>} /> */}

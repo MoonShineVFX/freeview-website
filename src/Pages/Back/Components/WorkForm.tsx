@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 
 function WorkForm({categoryData,handleCreateWork , handleEditWork}) {
   const {register, handleSubmit, reset, formState: { errors }} = useForm(
-    {defaultValues: { title: "", intro: "",sort_num:"",youtube_id:"" ,year_of_work:"",video_url:"",vimeo_id:"", youtube_id:""}});
+    {defaultValues: { title: "", intro: "",sort_num:"" ,year_of_work:"",video_url:""}});
   const onSubmit = (data) => {
     console.log(data)
     if(data.method === 'ADD'){
@@ -66,7 +66,7 @@ function WorkForm({categoryData,handleCreateWork , handleEditWork}) {
                 />
               </div>
               <div className="mb-3">
-                <label htmlFor="exampleURL0" className="form-label inline-block mb-2 text-gray-700">影片位置(接貼上youtube or vimeo 網址)</label>
+                <label htmlFor="exampleURL0" className="form-label inline-block mb-2 text-gray-700">影片位置</label>
                 <input
                   type="text"
                   className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
