@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 
 function WorkForm({categoryData,handleCreateWork , handleEditWork}) {
   const {register, handleSubmit, reset, formState: { errors }} = useForm(
-    {defaultValues: { title: "", intro: "",sort_num:"" ,year_of_work:"",video_url:""}});
+    {defaultValues: { title: "",eng_title:"",years:"",total_duration:"",resolution:"", intro: "",sort_num:"" ,year_of_work:"",video_url:""}});
   const onSubmit = (data) => {
     console.log(data)
     if(data.method === 'ADD'){
@@ -41,9 +41,51 @@ function WorkForm({categoryData,handleCreateWork , handleEditWork}) {
                   type="text"
                   className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
                   id="exampleURL0"
-                  placeholder="作品名稱"
+                  placeholder="作品名稱(20個中文字)"
                   {...register('title')}
                 />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="exampleURL0" className="form-label inline-block mb-2 text-gray-700">作品英文名稱</label>
+                <input
+                  type="text"
+                  className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
+                  id="exampleURL0"
+                  placeholder="作品英文名稱(20個英文字)"
+                  {...register('eng_title')}
+                />
+              </div>
+              <div className='flex gap-5'>
+                <div className="mb-3">
+                  <label htmlFor="exampleURL0" className="form-label inline-block mb-2 text-gray-700">年份</label>
+                  <input
+                    type="text"
+                    className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
+                    id="exampleURL0"
+                    placeholder="年份:2022"
+                    {...register('years')}
+                  />
+                </div>
+                <div className="mb-3">
+                <label htmlFor="exampleURL0" className="form-label inline-block mb-2 text-gray-700">長度</label>
+                <input
+                  type="text"
+                  className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
+                  id="exampleURL0"
+                  placeholder="長度:120分鐘,4分鐘,120秒"
+                  {...register('total_duration')}
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="exampleURL0" className="form-label inline-block mb-2 text-gray-700">畫質</label>
+                <input
+                  type="text"
+                  className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
+                  id="exampleURL0"
+                  placeholder="畫質:4K,2k,1080p,720p,480p"
+                  {...register('resolution')}
+                />
+              </div>
               </div>
               <div className="relative mb-3">
                 <label htmlFor="exampleURL0" className="form-label inline-block mb-2 text-gray-700">作品分類</label>
@@ -55,6 +97,7 @@ function WorkForm({categoryData,handleCreateWork , handleEditWork}) {
                   })}
                 </select>
               </div>
+
               
               <div className="mb-3">
                 <label htmlFor="exampleURL0" className="form-label inline-block mb-2 text-gray-700">作品排序(輸入1-999)</label>

@@ -9,11 +9,16 @@ import Navbar from '../Components/Navbar'
 import NavData from '../Components/navbar.json'
 // import footerData from '../Components/footer.json'
 // import socialMediaData from '../Components/socialitemData.json'
-import { RecoilRoot } from 'recoil';
-
+import { RecoilRoot} from 'recoil';
+import {navbarBgState} from '../atoms/modalAtom'
 
 function PublicPageLayout() {
+ 
+
   const {navbar} =NavData
+  
+
+
   return (
     <React.Fragment>
       <RecoilRoot>

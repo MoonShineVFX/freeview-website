@@ -3,8 +3,8 @@ import React,{useState,useEffect,useContext} from 'react'
 import {MultiViewsDumbPlayer, MultiViewsDumbPlayerCore} from 'multi-views-dumb-player';
 
 //chatroom
-import LoginChannel from '../Home/Components/Chat/LoginChannel';
-import Channel from '../Home/Components/Chat/Channel';
+import LoginChannel from '../Components/Chat/LoginChannel';
+import Channel from '../Components/Chat/Channel';
 import {ChatuserContext} from '../../../Components/context/ChatuserProvider'
 function Watch() {
 	const MultiViewsDumbPlayerSettings = {

@@ -21,3 +21,8 @@ export const categoryState = atom({
   key: 'categoryState',
   default: null,
 });
+
+export const navbarBgState = atom({
+  key: 'navbarBgState',
+  default: false,
+})

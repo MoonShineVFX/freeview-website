@@ -22,6 +22,8 @@ import AdminHome from './Pages/Back/Home'
 //data
 import {fakeData} from './Helper/HelperComponents'
 function App() {
+
+
   return (
     <AuthProvider>
     <ChatuserProvider>
@@ -37,7 +39,7 @@ function App() {
             </Route>
             <Route path="/"  element={ <PlayPageLayout/>}> 
               <Route path="watch" element={<Watch />} />
-              <Route path="WatchVideos" element={<WatchVideos />} />
+              <Route path="WatchVideos/:videoid" element={<WatchVideos />} />
             </Route>
             
             <Route path="admin"  element={ <DashboardPageLayout/>}>

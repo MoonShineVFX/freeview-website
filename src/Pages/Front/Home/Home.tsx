@@ -1,11 +1,19 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 
-import Header from './Components/Header'
-import ProgramList from './Components/ProgramList'
-
+import Header from '../Components/Header'
+import ProgramList from '../Components/ProgramList'
+import {getNewestWorks} from '../../../Helper/getfunction'
 
 
 function Home() {
+  const [work,setWork] = useState([])
+  useEffect(()=>{
+    getNewestWorks((res)=>{
+      console.log(res)
+      setWork(res)
+    })
+  },[])
+
   const imgs = [
     {
       "id":"1",
@@ -33,8 +41,8 @@ function Home() {
     <section id="home" className=' pb-44  '>
       <Header />
       <div className='w-10/12 mx-auto'>
-        <ProgramList title="最近直播"  data={imgs} type='newest' />
-        <ProgramList title="熱門演出(歷史影片)" data={imgs} type='videos' />
+        <ProgramList title="最近直播"  data={work} type='newest' />
+        <ProgramList title="熱門演出(歷史影片)" data={work} type='videos' />
       </div>
 
     </section>

@@ -1,21 +1,13 @@
 // firebase 資料庫連線
 import db from '../firebaseConfig/firebase'
-import {collection, query,  getDocs,orderBy,where,limit,limitToLast,startAfter,endBefore,addDoc,deleteDoc,doc,updateDoc,onSnapshot} from "firebase/firestore"
+import {collection, query,  getDocs,orderBy,where,limit,limitToLast,startAfter,endBefore,getDoc,addDoc,deleteDoc,doc,updateDoc,onSnapshot,arrayUnion, arrayRemove} from "firebase/firestore"
 import { getStorage, ref, getDownloadURL,  } from "firebase/storage";
 import { async } from '@firebase/util';
 const storage = getStorage();
 
 
-/**
- * 取5筆資料
- * **/
-export const getNewestWorks = async (callback) =>{
-  const q = query(collection(db, "data"),orderBy('time_added' , 'desc'), where("display", "==", '1'),limit(5))
-  const data = await getDocs(q);
-  mapDataWithImage('data',data.docs.map(doc=> doc.data()),function(res){
-    callback(res)
-  })
-}
+
+
 
 /**
  * 到 firebase 撈作品資料表 全部
@@ -31,34 +23,8 @@ export const getWorks = async (callback)=>{
 }
 
 
-// 處理作品的圖片路徑
-const mapDataWithImage =async (folder,data , callback)=>{
-  let dataSorted = data.sort(function(a, b) {
-    return b.sort_num - a.sort_num;
-  });
-  const twoarr= dataSorted.map( async (element) => {
-    const imagesRef = ref(storage, `${folder}/${element.img}`);
-    const newimgurl =await getDownloadURL(imagesRef).catch((error) => {
-      switch (error.code) {
-        case 'storage/object-not-found':
-          break;
-        case 'storage/unauthorized':
-          break;
-        case 'storage/canceled':
-          break;
-        case 'storage/unknown':
-          break;
-        default:
-          console.log('')
-      }
-    })
-    return {...element , imgpath :newimgurl}
-   
-  })
-  callback(await Promise.all(twoarr))
-  // setWorkData(await Promise.all(twoarr))
-  // setFilteredWorkData(await Promise.all(twoarr))
-}
+
+
 const mapDataWithUid = async (data, callback)=>{
   let dataSorted = data.sort(function(a, b) {
     return b.sort_num - a.sort_num;
@@ -255,6 +221,10 @@ export const updateService = async (uid,currentData,callback)=>{
 }
 
 /** Freeview Helper function -- start **/
+/** Freeview Helper function -- start **/
+/** Freeview Helper function -- start **/
+/** Freeview Helper function -- start **/
+/** Freeview Helper function -- start **/
 
 /**
  * 到 firebase 撈作品資料表 
@@ -322,7 +292,7 @@ export const deleteWork = async(uid,callback)=>{
       callback(error)
     }
  }
-//Msg Board 
+//Msg Board 留言板
 export const createMsgBaord = async (data,callback)=>{
 console.log(data)
   const msgboardRef = collection(db ,"msg_board")
@@ -344,6 +314,32 @@ export const updateMsgBaord = async (uid,currentData,callback)=>{
     }
  }
 
+ export const getMsgBoardById = async (id,callback)=>{
+  // const docRef = doc(db ,"msg_board", id)
+  const q = query(collection(db, "msg_board"), where("v_id", "==", id))
+
+  try {
+    const snapshot = await getDocs(q);
+
+    snapshot.docs.map((doc)=>{
+      callback({...doc.data(),uid:doc.id})
+    })
+  } catch(error) {
+    return callback(error)
+  }
+ }
+
+ export const updateMsgBoardById = async (uid,currentData,callback)=>{
+  const docRef = doc(db ,"msg_board", uid)
+  try{
+    await updateDoc(docRef, {
+      msg: arrayUnion(currentData)
+    });
+  }catch(error){
+
+  }
+ }
+
 //Chat room Message
 export const getMessage = async (callback) =>{
   const q = query(collection(db, "message"),orderBy('createdAt' , 'desc'),limit(100))
@@ -361,3 +357,56 @@ export const createMessage = async (data,callback)=>{
     callback(error)
   }
 }
+
+//取作品
+/**
+ * 取7筆資料
+ * **/
+ export const getNewestWorks = async (callback) =>{
+  const q = query(collection(db, "data"),orderBy('time_added' , 'desc'), where("display", "==", '1'),limit(7))
+  const data = await getDocs(q);
+  mapDataWithImage('data',data.docs.map(doc=> doc.data()),function(res){
+    callback(res)
+  })
+}
+
+//由id取得單筆作品
+export const getWorkById = async (id,callback)=>{
+  const q = query(collection(db,'data'),where('id', '==' , id))
+  try{
+    const snapshot = await getDocs(q);
+
+    snapshot.docs.map((doc)=>{
+      callback({...doc.data(),uid:doc.id})
+    })
+  }catch(error){
+    callback(error)
+  }
+}
+
+// 處理作品的圖片路徑
+const mapDataWithImage =async (folder,data , callback)=>{
+  let dataSorted = data.sort(function(a, b) {
+    return b.sort_num - a.sort_num;
+  });
+  const twoarr= dataSorted.map( async (element) => {
+    const imagesRef = ref(storage, `${folder}/${element.img}`);
+    const newimgurl = await getDownloadURL(imagesRef).catch((error) => {
+      console.log(error.code)
+      switch (error.code) {
+        case 'storage/object-not-found':
+          break;
+        case 'storage/unauthorized':
+          break;
+        case 'storage/canceled':
+          break;
+        case 'storage/unknown':
+          break;
+        default:
+          console.log('');
+      }
+    });
+    return {...element , imgpath :newimgurl}
+  });
+  callback(await Promise.all(twoarr))
+};

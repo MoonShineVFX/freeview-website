@@ -1,7 +1,7 @@
 import React,{useState,useEffect,useContext} from 'react'
 import { useForm } from "react-hook-form";
 
-import { ChatuserContext } from '../../../../../Components/context/ChatuserProvider'
+import { ChatuserContext } from '../../../../Components/context/ChatuserProvider'
 function LoginChannel() {
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const [user, setUser] = useState("")

@@ -1,10 +1,22 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { Link ,useLocation  } from "react-router-dom";
+import { useRecoilState } from 'recoil';
+import {navbarBgState} from '../atoms/modalAtom'
 function Navbar({data , toggleTrueFalse,types}) {
-
+  const [navbarBg, setNavbarBg] = useRecoilState(navbarBgState);
+  const listenToScroll = ()=>{
+    if(window.pageYOffset > 100){
+      setNavbarBg(true)
+    }else{
+      setNavbarBg(false)
+    }
+  }
   const { pathname } = useLocation();
+  useEffect(()=>{
+    window.addEventListener('scroll', listenToScroll)
+  },[])
   return (
-    <div id="navbar" className={ "flex items-center text-white py-3 px-6  w-full  z-50 site-menu xs:hidden  " + (types === 'play' ? ' relative drop-shadow-lg ' : 'fixed' )}>
+    <div id="navbar" className={ "flex items-center text-white py-3 px-6  w-full  z-50 site-menu xs:hidden  " + (types === 'play' ? ' relative drop-shadow-lg ' : 'fixed ' ) + (navbarBg && ' bg-[#000000dd]')}>
       <div className="logo font-bold">
         <Link
           to="/"

@@ -23,19 +23,20 @@ export interface Movie {
 }
 
 export interface Video {
-  id:string;
-  title : string;
-  category:string;
-  img:string;
+	id:string;
+	display:string;
+	title:string;
+	eng_title:string;
+	intro:string;
+	video_url:string;
+	resolution:string;
+	years:string;
+	total_duration:string;
   time_added:string;
-  video_url:string;
-  display:string;
-  intro:string;
-  total_duration:string;
-
-
-
+  category:string;
+	msg_board_video_id:string;
 }
+
 export interface Element {
   type:
     | 'Bloopers'

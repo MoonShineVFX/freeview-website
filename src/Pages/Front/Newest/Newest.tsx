@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link  } from "react-router-dom";
-import StaticHeader from '../Home/Components/StaticHeader'
+import StaticHeader from '../Components/StaticHeader'
 function Newest(props:{types:string, data:any}) {
   return (
     <div >

@@ -1,9 +1,9 @@
 import React,{useEffect, useState,useContext,useRef} from 'react'
-import {getMessage, createMessage} from '../../../../../Helper/getfunction'
+import {getMessage, createMessage} from '../../../../Helper/getfunction'
 import {serverTimestamp}from "firebase/firestore"
 import Message from './Message';
 import { useForm } from "react-hook-form";
-import {ChatuserContext} from '../../../../../Components/context/ChatuserProvider'
+import {ChatuserContext} from '../../../../Components/context/ChatuserProvider'
 function Channel(props:{user:string }) {
   const { register, handleSubmit, watch, formState: { errors } ,reset} = useForm();
   const [newMessage, setNewMessage] = useState('');

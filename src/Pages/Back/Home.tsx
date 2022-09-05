@@ -58,13 +58,17 @@ function Home(props:{types:string}) {
       "id": currentDate,
       "time_added": new Date(+new Date() + 8 * 3600 * 1000).toISOString().replace(/T/, ' ').replace(/\..+/, '')  ,
       "title": data.title,
+      "eng_title":data.eng_title,
       "intro": data.intro,
       "video_url": data.video_url,
       "sort_num": data.sort_num ? data.sort_num : '666',
       "display":data.display ,
       "year_of_work":data.yearofwork ? data.yearofwork : '2022',
       "category":data.category ? data.category : '1',
-      "msg_board_video_id":currentDate
+      "msg_board_video_id":currentDate,
+      "years":data.years,
+      "total_duration":data.total_duration,
+      "resolution":data.resolution
     }
     let newboardData = {
       "id": Date.now().toString(36),
@@ -87,12 +91,16 @@ function Home(props:{types:string}) {
     const imgFileName:string = Date.now()+'.jpg'
     let currentDataWithoutImg ={
       "title": data.title,
+      "eng_title":data.eng_title,
       "intro": data.intro,
       "video_url": data.video_url,
       "sort_num": data.sort_num ,
       "display":data.display,
       "year_of_work":data.year_of_work ,
-      "category":data.category ,
+      "category":data.category,
+      "years":data.years,
+      "total_duration":data.total_duration,
+      "resolution":data.resolution
     }
     // 如果有圖檔存在 執行新增資料 否則不執行
     if (selectedFile) {
@@ -185,7 +193,7 @@ function Home(props:{types:string}) {
                 const {uid,id, display, title, time_added,category,sort_num,msg_board_video_id} =item
                 return(
                   <tr className=' hover:bg-zinc-200' key={id+title}>
-                    <td className='p-2 text-xs'>{id} {msg_board_video_id}</td>
+                    <td className='p-2 text-xs'>{id} </td>
                     <td className='p-2 text-xs'>{sort_num}</td>
                     <td className='p-2 text-xs'>{title}</td>
                     <td className='p-2 text-xs'>
@@ -195,7 +203,7 @@ function Home(props:{types:string}) {
                       })}
                     </td>
                     <td className='p-2 text-xs'>{display === '1' ? '顯示' : '不顯示'}</td>
-                    <td className='p-2 text-xs'>{Number(time_added).toLocaleString()}</td>
+                    <td className='p-2 text-xs'>{time_added}</td>
                     <td className='p-2 text-xs'>
                       <button 
                       className='text-xs  rounded-md bg-black text-white py-2 px-6 hover:bg-slate-600 '
