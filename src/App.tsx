@@ -15,6 +15,7 @@ import {ChatuserProvider} from './Components/context/ChatuserProvider'
 import Home from './Pages/Front/Home/Home';
 import Watch from './Pages/Front/Watch/Watch';
 import WatchVideos from './Pages/Front/Watch/ＷatchVideos'
+import WatchMSE from './Pages/Front/Watch/WatchMSE'
 import Newest from './Pages/Front/Newest/Newest';
 import Videos from './Pages/Front/Videos/Videos';
 import AdminHome from './Pages/Back/Home'
@@ -38,7 +39,8 @@ function App() {
 
             </Route>
             <Route path="/"  element={ <PlayPageLayout/>}> 
-              <Route path="watch" element={<Watch />} />
+              <Route path="stream" element={<Watch />} />
+              <Route path="WatchMSE" element={<WatchMSE />} />
               <Route path="WatchVideos/:videoid" element={<WatchVideos />} />
             </Route>
             

@@ -27,14 +27,15 @@ function Navbar({data , toggleTrueFalse,types}) {
 
       </div>
 
-      <ul className='menu_list flex justify-center items-center  w-full ml-10'>
+      <ul className='menu_list flex justify-center items-center  w-full ml-10 text-base '>
+
         { data?
           data.map((item,index)=>{
             return(
-              <li key={index} className="mr-4 text-sm">
+              <li key={index} className="mr-4">
                 <Link 
                   to={item.type}
-                  className={ pathname.substring(1) === item.type ? 'active' : ''}
+                  className={ pathname.substring(1) === item.type ? 'font-bold text-emerald-300' : ''}
                 >
                   {item.chtName}
                 </Link>
@@ -42,7 +43,8 @@ function Navbar({data , toggleTrueFalse,types}) {
             )
           }): ""
         }
-        <li className='ml-auto w-[300px] md:hidden'>
+
+        {/* <li className='ml-auto w-[300px] md:hidden'>
           <form>   
               <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only ">Search</label>
               <div className="relative">
@@ -54,7 +56,7 @@ function Navbar({data , toggleTrueFalse,types}) {
               </div>
           </form>
           
-        </li>
+        </li> */}
       </ul>
   
 

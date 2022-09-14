@@ -225,6 +225,8 @@ export const updateService = async (uid,currentData,callback)=>{
 /** Freeview Helper function -- start **/
 /** Freeview Helper function -- start **/
 /** Freeview Helper function -- start **/
+/** Freeview Helper function -- start **/
+/** Freeview Helper function -- start **/
 
 /**
  * 到 firebase 撈作品資料表 
@@ -358,7 +360,7 @@ export const createMessage = async (data,callback)=>{
   }
 }
 
-//取作品
+//取歷史影片作品
 /**
  * 取7筆資料
  * **/
