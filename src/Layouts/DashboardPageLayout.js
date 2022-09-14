@@ -8,7 +8,7 @@ function DashboardPageLayout() {
 
   useEffect(()=>{
     if(location.pathname === '/admin' || location.pathname === '/admin/' ) {
-      navigate("/admin/stream")
+      navigate("/admin/videos")
     }
   },[])
 

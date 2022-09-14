@@ -35,6 +35,7 @@ export interface Video {
   time_added:string;
   category:string;
 	msg_board_video_id:string;
+  imgpath:string;
 }
 
 export interface Element {

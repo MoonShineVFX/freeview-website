@@ -63,7 +63,6 @@ function Home(props:{types:string}) {
       "video_url": data.video_url,
       "sort_num": data.sort_num ? data.sort_num : '666',
       "display":data.display ,
-      "year_of_work":data.yearofwork ? data.yearofwork : '2022',
       "category":data.category ? data.category : '1',
       "msg_board_video_id":currentDate,
       "years":data.years,
@@ -96,7 +95,6 @@ function Home(props:{types:string}) {
       "video_url": data.video_url,
       "sort_num": data.sort_num ,
       "display":data.display,
-      "year_of_work":data.year_of_work ,
       "category":data.category,
       "years":data.years,
       "total_duration":data.total_duration,
@@ -109,9 +107,9 @@ function Home(props:{types:string}) {
           setFile({
             "filename":imgFileName,
             "file":selectedFile,
-            "folder":'data/',
-            "maxWidth":274,
-            "maxHeight":169,
+            "folder":'img_videos/',
+            "maxWidth":517,
+            "maxHeight":290,
             "compressFormat":"JPEG",
             "quality":75
           });

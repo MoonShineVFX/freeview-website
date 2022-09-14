@@ -16,6 +16,7 @@ import Home from './Pages/Front/Home/Home';
 import Watch from './Pages/Front/Watch/Watch';
 import WatchVideos from './Pages/Front/Watch/ＷatchVideos'
 import WatchMSE from './Pages/Front/Watch/WatchMSE'
+import WatchTest from './Pages/Front/Watch/WatchTest';
 import Newest from './Pages/Front/Newest/Newest';
 import Videos from './Pages/Front/Videos/Videos';
 import AdminHome from './Pages/Back/Home'
@@ -35,17 +36,17 @@ function App() {
               <Route path="newest" element={<Newest data={fakeData} types='stream' />} />
               <Route path="videos" element={<Videos data={fakeData} types='video' />  }  />
             
-
-
             </Route>
             <Route path="/"  element={ <PlayPageLayout/>}> 
               <Route path="stream" element={<Watch />} />
-              <Route path="WatchMSE" element={<WatchMSE />} />
+              <Route path="test" element={<WatchTest />} />
+              <Route path="vodar" element={<WatchMSE />} />
               <Route path="WatchVideos/:videoid" element={<WatchVideos />} />
+              
             </Route>
             
             <Route path="admin"  element={ <DashboardPageLayout/>}>
-              <Route  path="history" element={<AdminHome types='history'/>} />
+              <Route  path="videos" element={<AdminHome types='history'/>} />
               <Route  path="stream" element={<AdminHome types='stream'/>} />
               {/* <Route  path="category" element={<AdminCateogry/>} /> */}
               {/* <Route  path="award" element={<AdminAward/>} /> */}

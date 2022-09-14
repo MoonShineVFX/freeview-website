@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 
 function WorkForm({categoryData,handleCreateWork , handleEditWork}) {
   const {register, handleSubmit, reset, formState: { errors }} = useForm(
-    {defaultValues: { title: "",eng_title:"",years:"",total_duration:"",resolution:"", intro: "",sort_num:"" ,year_of_work:"",video_url:""}});
+    {defaultValues: { title: "",eng_title:"",years:"",total_duration:"",resolution:"", intro: "",sort_num:"" ,video_url:""}});
   const onSubmit = (data) => {
     console.log(data)
     if(data.method === 'ADD'){

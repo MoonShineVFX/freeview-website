@@ -237,7 +237,7 @@ export const getAllWorksForDashboard = async (callback)=>{
   const q = query(collection(db, "data"),orderBy('time_added' , 'desc'),limit(12))
   const data = await getDocs(q);
 
-  mapDataWithImage('data',data.docs.map(doc=> ({...doc.data(),uid:doc.id})),function(res){
+  mapDataWithImage('img_videos',data.docs.map(doc=> ({...doc.data(),uid:doc.id})),function(res){
     callback(res)
   })
 }
@@ -367,7 +367,7 @@ export const createMessage = async (data,callback)=>{
  export const getNewestWorks = async (callback) =>{
   const q = query(collection(db, "data"),orderBy('time_added' , 'desc'), where("display", "==", '1'),limit(7))
   const data = await getDocs(q);
-  mapDataWithImage('data',data.docs.map(doc=> doc.data()),function(res){
+  mapDataWithImage('img_videos',data.docs.map(doc=> doc.data()),function(res){
     callback(res)
   })
 }

@@ -27,15 +27,15 @@ function Navbar({data , toggleTrueFalse,types}) {
 
       </div>
 
-      <ul className='menu_list flex justify-center items-center  w-full ml-10 text-base '>
+      <ul className='menu_list flex justify-center items-center  w-full ml-10 text-sm   '>
 
         { data?
           data.map((item,index)=>{
             return(
-              <li key={index} className="mr-4">
+              <li key={index} className="mr-4 hover:text-emerald-300 transition">
                 <Link 
                   to={item.type}
-                  className={ pathname.substring(1) === item.type ? 'font-bold text-emerald-300' : ''}
+                  className={ pathname.substring(1) === item.type ? 'font-bold text-emerald-300 text-lg' : ''}
                 >
                   {item.chtName}
                 </Link>
