@@ -15,7 +15,7 @@ import {ChatuserProvider} from './Components/context/ChatuserProvider'
 import Home from './Pages/Front/Home/Home';
 import Watch from './Pages/Front/Watch/Watch';
 import WatchVideos from './Pages/Front/Watch/ＷatchVideos'
-import WatchMSE from './Pages/Front/Watch/WatchMSE'
+import WatchVodAr from './Pages/Front/Watch/WatchVodAr'
 import WatchTest from './Pages/Front/Watch/WatchTest';
 import Newest from './Pages/Front/Newest/Newest';
 import Videos from './Pages/Front/Videos/Videos';
@@ -40,7 +40,7 @@ function App() {
             <Route path="/"  element={ <PlayPageLayout/>}> 
               <Route path="stream" element={<Watch />} />
               <Route path="test" element={<WatchTest />} />
-              <Route path="vodar" element={<WatchMSE />} />
+              <Route path="vodar" element={<WatchVodAr />} />
               <Route path="WatchVideos/:videoid" element={<WatchVideos />} />
               
             </Route>

@@ -20,11 +20,14 @@ function ProgramList( {data,type,title} :Props) {
 						data.slice(0, 7).map((item,index)=>{
 							const { title,eng_title,total_duration,resolution,years, imgpath} = item
 							return(
-								<div key={item.id} className='group aspect-[16/9] w-full bg-cover bg-no-repeat bg-center transition-all cursor-pointer brightness-90  hover:brightness-110'
+								<div key={item.id} className='group aspect-[1140/585] w-full bg-cover bg-no-repeat bg-center transition-all cursor-pointer brightness-90  hover:brightness-110'
 									// style={{backgroundImage: `url(${process.env.PUBLIC_URL + '/images/' + item})`}}
 								>	
 									<Link to={(type === 'newest' ? '/watch?v=' +item.id : '/watchvideos/'+item.id)}>
-										<img src={imgpath ? imgpath : process.env.PUBLIC_URL+'/images/'+'img.jpeg'} alt="" className='aspect-[16/9] object-cover rounded-lg group-hover:scale-110'/>
+										<div className=' aspect-[1140/585] rounded-lg  overflow-hidden'>
+											<img src={imgpath ? imgpath : process.env.PUBLIC_URL+'/images/'+'img.jpeg'} alt="" className='w-full h-full object-cover transition  duration-300  group-hover:scale-110'/>
+										</div>
+										
 										<div className='mt-3'>
 											<div className='text-white text-sm font-normal mb-1 group-hover:text-emerald-300'>{title}</div>
 											<div className='text-zinc-400 text-xs font-light leading-2'>

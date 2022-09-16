@@ -6,7 +6,7 @@ import {MultiViewsDumbPlayer, MultiViewsDumbPlayerCore} from 'multi-views-dumb-p
 import LoginChannel from '../Components/Chat/LoginChannel';
 import Channel from '../Components/Chat/Channel';
 import {ChatuserContext} from '../../../Components/context/ChatuserProvider'
-function WatchMSE() {
+function WatchVodAr() {
 	const MultiViewsDumbPlayerSettings = {
 		url: '202202131955', // an-dance.mp4 (vod) or an-dance-low (live)
 		host: 'http://192.168.8.65:84/',
@@ -52,4 +52,4 @@ function WatchMSE() {
   )
 }
 
-export default WatchMSE
+export default WatchVodAr
