@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import ReactPlayer from 'react-player';
+import {MultiViewsDumbPlayer, MultiViewsDumbPlayerCore} from 'multi-views-dumb-player';
 import { useParams } from 'react-router-dom';
 //import msgboard
 import DisplayBoard from '../Components/Ｍsgboard/DisplayBoard'
@@ -9,6 +10,26 @@ function ＷatchVideos() {
 	const {videoid} = useParams();
 	const [data ,setData] = useState<Video | null >(null)
 	console.log(videoid)
+
+	const MultiViewsDumbPlayerSettings = {
+		url: '202112312030SunsetTMC.mp4', // an-dance.mp4 (vod) or an-dance-low (live)
+		host: 'https://storage.googleapis.com/freeview-data',
+		core: MultiViewsDumbPlayerCore.TILES, // TILES for vod, MSE for live
+		columnCount: 4,
+		rowCount: 4,
+		styles: {
+			main: {paddingLeft: '20px'},
+			playback: {borderRadius: '8px'},
+			trackControl: {marginTop: '10px', height: '48px'}
+		},
+		colors: {
+		  highlight: '#6EE7B7',
+		  main: 'white',
+		  sub: '#6EE7B7',
+		  base: '#475569'
+		},
+		onVideoPlaying: (videoTime: number) => console.log(videoTime)
+	}
 	useEffect(()=>{
 		if(!videoid) return
 
@@ -21,13 +42,14 @@ function ＷatchVideos() {
 
 				<div className='streamingvieos w-full grow'>
 					<div className='  relative aspect-video flex flex-col'>
-						<ReactPlayer
+						{/* <ReactPlayer
 							url={data?.video_url}
 							width="100%"
 							height="100%"
 							playing
 							controls
-						/>
+						/> */}
+						<MultiViewsDumbPlayer {...MultiViewsDumbPlayerSettings} />
 						
 					</div>
 					<div className='bg-zinc-800 w-full  flex justify-center items-center  box-border grow h-20'> View 360 Controller</div>
