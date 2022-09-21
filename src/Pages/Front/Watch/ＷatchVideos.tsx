@@ -10,10 +10,20 @@ function ＷatchVideos() {
 	const {videoid} = useParams();
 	const [data ,setData] = useState<Video | null >(null)
 	console.log(videoid)
+	
+	
+	useEffect(()=>{
+		if(!videoid) return
+
+		getWorkById(videoid,function(res){
+			setData(res)
+			console.log(res)
+		})
+	},[])
 
 	const MultiViewsDumbPlayerSettings = {
-		url: '202112312030SunsetTMC.mp4', // an-dance.mp4 (vod) or an-dance-low (live)
-		host: 'https://storage.googleapis.com/freeview-data',
+		url: data?.video_url, // an-dance.mp4 (vod) or an-dance-low (live)
+		host: data?.video_host,
 		core: MultiViewsDumbPlayerCore.TILES, // TILES for vod, MSE for live
 		columnCount: 4,
 		rowCount: 4,
@@ -30,13 +40,6 @@ function ＷatchVideos() {
 		},
 		onVideoPlaying: (videoTime: number) => console.log(videoTime)
 	}
-	useEffect(()=>{
-		if(!videoid) return
-
-		getWorkById(videoid,function(res){
-			setData(res)
-		})
-	},[])
   return (
     <div className='w-full flex flex-col mx-auto mt-15  h-[calc(100vh-84px)] '>
 
@@ -49,7 +52,8 @@ function ＷatchVideos() {
 							playing
 							controls
 						/> */}
-						<MultiViewsDumbPlayer {...MultiViewsDumbPlayerSettings} />
+						{data && <MultiViewsDumbPlayer {...MultiViewsDumbPlayerSettings} />}
+
 						
 					</div>
 					<div className='bg-zinc-800 w-full  flex justify-center items-center  box-border grow h-20'> View 360 Controller</div>

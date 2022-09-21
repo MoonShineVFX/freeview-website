@@ -60,6 +60,7 @@ function Home(props:{types:string}) {
       "title": data.title,
       "eng_title":data.eng_title,
       "intro": data.intro,
+      "video_host": data.video_host,
       "video_url": data.video_url,
       "sort_num": data.sort_num ? data.sort_num : '666',
       "display":data.display ,
@@ -92,6 +93,7 @@ function Home(props:{types:string}) {
       "title": data.title,
       "eng_title":data.eng_title,
       "intro": data.intro,
+      "video_host": data.video_host,
       "video_url": data.video_url,
       "sort_num": data.sort_num ,
       "display":data.display,
@@ -162,7 +164,7 @@ function Home(props:{types:string}) {
   return (
     <div className='w-full bg-white p-5 text-black relative'>
       <div className='w-full border-b mb-10'>
-        <h1>{props.types === 'history'? '管理歷史影片' : '管理直播影片'}</h1>
+        <h1>{props.types === 'history'? '管理VOD影片' : '管理直播影片'}</h1>
       </div>
       <button 
         className='text-xs  rounded-md bg-black text-white py-2 px-6 hover:bg-slate-600'
@@ -178,7 +180,7 @@ function Home(props:{types:string}) {
               <th className='bg-zinc-100 border-b border-zinc-300 text-left'>作品ID</th>
               <th className='bg-zinc-100 border-b border-zinc-300 text-left'>排序</th>
               <th className='bg-zinc-100 border-b border-zinc-300 text-left'>作品名稱</th>
-              <th className='bg-zinc-100 border-b border-zinc-300 text-left'>分類</th>
+              <th className='bg-zinc-100 border-b border-zinc-300 text-left'>位置</th>
               <th className='bg-zinc-100 border-b border-zinc-300 text-left'>狀態</th>
               <th className='bg-zinc-100 border-b border-zinc-300 text-left'>上傳日期</th>
               <th className='bg-zinc-100 border-b border-zinc-300 text-left'>編輯</th>
@@ -188,17 +190,18 @@ function Home(props:{types:string}) {
             {
               workData ?
               workData.map((item,index)=>{
-                const {uid,id, display, title, time_added,category,sort_num,msg_board_video_id} =item
+                const {uid,id, display, title, time_added,category,sort_num,msg_board_video_id,video_host,video_url} =item
                 return(
                   <tr className=' hover:bg-zinc-200' key={id+title}>
                     <td className='p-2 text-xs'>{id} </td>
                     <td className='p-2 text-xs'>{sort_num}</td>
                     <td className='p-2 text-xs'>{title}</td>
                     <td className='p-2 text-xs'>
-                      {categoryData.map((item) => {
+                    {video_host}/{video_url}
+                      {/* {categoryData.map((item) => {
                         if(item['id'] === category)
                           return <div key={item['id']}>{item['name']}</div>
-                      })}
+                      })} */}
                     </td>
                     <td className='p-2 text-xs'>{display === '1' ? '顯示' : '不顯示'}</td>
                     <td className='p-2 text-xs'>{time_added}</td>

@@ -28,6 +28,7 @@ export interface Video {
 	title:string;
 	eng_title:string;
 	intro:string;
+	video_host:string;
 	video_url:string;
 	resolution:string;
 	years:string;

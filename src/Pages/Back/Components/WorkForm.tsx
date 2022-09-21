@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 
 function WorkForm({categoryData,handleCreateWork , handleEditWork}) {
   const {register, handleSubmit, reset, formState: { errors }} = useForm(
-    {defaultValues: { title: "",eng_title:"",years:"",total_duration:"",resolution:"", intro: "",sort_num:"" ,video_url:""}});
+    {defaultValues: { title: "",eng_title:"",years:"",total_duration:"",resolution:"", intro: "",sort_num:"" ,video_host:"",video_url:""}});
   const onSubmit = (data) => {
     console.log(data)
     if(data.method === 'ADD'){
@@ -87,7 +87,25 @@ function WorkForm({categoryData,handleCreateWork , handleEditWork}) {
                 />
               </div>
               </div>
-              <div className="relative mb-3">
+              <div className="mb-3">
+                <label htmlFor="exampleURL0" className="form-label inline-block mb-2 text-gray-700">VOD位址(https://storage.xxx.xxx)</label>
+                <input
+                  type="text"
+                  className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
+                  placeholder="VOD位址(host)"
+                  {...register('video_host')}
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="exampleURL0" className="form-label inline-block mb-2 text-gray-700">VOD影片名稱(xxx.mp4)</label>
+                <input
+                  type="text"
+                  className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
+                  placeholder="VOD影片名稱(ur)"
+                  {...register('video_url')}
+                />
+              </div>
+              {/* <div className="relative mb-3">
                 <label htmlFor="exampleURL0" className="form-label inline-block mb-2 text-gray-700">作品分類</label>
                 <select className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none " id="category" {...register("category")}>
                   {categoryData.map((item,index)=>{
@@ -96,7 +114,7 @@ function WorkForm({categoryData,handleCreateWork , handleEditWork}) {
                     )
                   })}
                 </select>
-              </div>
+              </div> */}
 
               
               <div className="mb-3">
@@ -108,15 +126,7 @@ function WorkForm({categoryData,handleCreateWork , handleEditWork}) {
                   {...register('sort_num')}
                 />
               </div>
-              <div className="mb-3">
-                <label htmlFor="exampleURL0" className="form-label inline-block mb-2 text-gray-700">影片位置</label>
-                <input
-                  type="text"
-                  className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
-                  placeholder="影片位置"
-                  {...register('video_url')}
-                />
-              </div>
+
 
               <div className="mb-3">
                 <label htmlFor="exampleURL0" className="form-label inline-block mb-2 text-gray-700">
