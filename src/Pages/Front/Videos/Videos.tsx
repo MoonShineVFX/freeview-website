@@ -36,8 +36,8 @@ function Videos({data,type} :Props) {
 										<div className='mt-3'>
 											<div className='text-white text-base font-normal mb-1 group-hover:text-emerald-300'>{title}</div>
 											<div className='text-zinc-200 text-xs font-light leading-2'>
-												<div>Everything Everywhere All at Once</div>
-												<div>2022．139分鐘 ．4K畫質</div>
+												<div>{eng_title}</div>
+												<div>{years}．{total_duration} ．{resolution}</div>
 											</div>
 
 										</div>
