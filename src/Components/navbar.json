@@ -1,32 +1,56 @@
 {
     "navbar":[
       {
-        "id":1,
-        "chtName":"正在直播中",
-        "engName":"NEW",
-        "type":"stream",
-        "icon":"M3 11h8V3H3m0 18h8v-8H3m10 8h8v-8h-8m0-10v8h8V3"
-      },
-      {
-        "id":2,
-        "chtName":"直播中(Test)",
-        "engName":"TEST",
-        "type":"test",
-        "icon":"M3 11h8V3H3m0 18h8v-8H3m10 8h8v-8h-8m0-10v8h8V3"
-      },
-      {
-        "id":4,
-        "chtName":"VOD(AR)",
-        "engName":"ar",
-        "type":"vodar",
-        "icon":"M13 9h-2V7h2m0 10h-2v-6h2m-1-9A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2Z"
-      },
-      {
         "id":3,
         "chtName":"探索 VOD",
         "engName":"videos",
         "type":"videos",
         "icon":"M13 9h-2V7h2m0 10h-2v-6h2m-1-9A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2Z"
+      },
+      {
+        "id":4,
+        "chtName":"VOD示範頁面",
+        "engName":"ar",
+        "type":"vodar",
+        "icon":"M13 9h-2V7h2m0 10h-2v-6h2m-1-9A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2Z",
+        "children":[
+          {
+            "id":1,
+            "chtName":"VOD(AR)",
+            "engName":"ar",
+            "type":"vodar",
+            "icon":"M3 11h8V3H3m0 18h8v-8H3m10 8h8v-8h-8m0-10v8h8V3"
+          },
+          {
+            "id":2,
+            "chtName":"探索 VOD",
+            "engName":"videos",
+            "type":"videos",
+            "icon":"M3 11h8V3H3m0 18h8v-8H3m10 8h8v-8h-8m0-10v8h8V3"
+          }
+        ]
+      },
+      {
+        "id":4,
+        "chtName":"直播示範頁面",
+        "engName":"streampage",
+        "type":"streampage",
+        "children":[
+          {
+            "id":1,
+            "chtName":"正在直播示範頁面",
+            "engName":"NEW",
+            "type":"stream",
+            "icon":"M3 11h8V3H3m0 18h8v-8H3m10 8h8v-8h-8m0-10v8h8V3"
+          },
+          {
+            "id":2,
+            "chtName":"直播中(Test)示範頁面",
+            "engName":"TEST",
+            "type":"test",
+            "icon":"M3 11h8V3H3m0 18h8v-8H3m10 8h8v-8h-8m0-10v8h8V3"
+          }
+        ]
       }
     ]
   }

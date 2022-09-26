@@ -2,6 +2,7 @@ import React,{useEffect} from 'react'
 import { Link ,useLocation  } from "react-router-dom";
 import { useRecoilState } from 'recoil';
 import {navbarBgState} from '../atoms/modalAtom'
+import { HiChevronDown } from "react-icons/hi";
 function Navbar({data , toggleTrueFalse,types}) {
   const [navbarBg, setNavbarBg] = useRecoilState(navbarBgState);
   const listenToScroll = ()=>{
@@ -16,7 +17,7 @@ function Navbar({data , toggleTrueFalse,types}) {
     window.addEventListener('scroll', listenToScroll)
   },[])
   return (
-    <div id="navbar" className={ "flex items-center text-white py-3 px-6  w-full  z-50 site-menu xs:hidden  " + (types === 'play' ? ' relative drop-shadow-lg ' : 'fixed ' ) + (navbarBg && ' bg-[#000000dd]')}>
+    <div id="navbar" className={ "flex items-center text-white py-3 px-6  w-full bg-[#00000060] z-50 site-menu xs:hidden  " + (types === 'play' ? ' relative drop-shadow-lg ' : 'fixed ' ) + (navbarBg && ' bg-[#000000dd]')}>
       <div className="logo font-bold">
         <Link
           to="/"
@@ -27,22 +28,41 @@ function Navbar({data , toggleTrueFalse,types}) {
 
       </div>
 
-      <ul className='menu_list flex justify-center items-center  w-full ml-10 text-sm   '>
+      <ul className='menu_list flex   w-full ml-10 text-sm flex-wrap  '>
 
         { data?
           data.map((item,index)=>{
             return(
-              <li key={index} className="mr-4 hover:text-emerald-300 transition">
+              <li key={index} className="mr-4 hover:text-emerald-300 transition group relative">
                 <Link 
                   to={item.type}
-                  className={ pathname.substring(1) === item.type ? 'font-bold text-emerald-300 text-lg' : ''}
+                  className={pathname.substring(1) === item.type ? 'font-bold text-emerald-300 text-lg ' : 'whitespace-nowrap flex  items-center    '}
                 >
                   {item.chtName}
+                  {item.children &&   <HiChevronDown className='ml-1'/> }
                 </Link>
+                {
+                  item.children && <ul className='absolute left-0 top-0 mt-5 p-4 rounded-lg shadow-lg bg-[#00000080] z-10 hidden group-hover:block'>
+                    {
+                      item.children.map((d,index)=>{
+                        return(
+                          <li key={index} className="p-1 whitespace-nowrap text-sm md:text-base text-zinc-100 hover:text-gray-100 hover:bg-gray-600">
+                            <Link to={d.type} className="px-2 py-3">
+                              {d.chtName}
+                            </Link>
+                            
+                          </li>
+                        )
+                      })
+                    }
+                    
+                  </ul>
+                }
               </li>
             )
           }): ""
         }
+        
 
         {/* <li className='ml-auto w-[300px] md:hidden'>
           <form>   
