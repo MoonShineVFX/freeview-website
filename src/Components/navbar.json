@@ -33,8 +33,8 @@
       {
         "id":4,
         "chtName":"直播示範頁面",
-        "engName":"streampage",
-        "type":"streampage",
+        "engName":"NEW",
+        "type":"stream",
         "children":[
           {
             "id":1,

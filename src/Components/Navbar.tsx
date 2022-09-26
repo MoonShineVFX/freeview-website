@@ -28,7 +28,7 @@ function Navbar({data , toggleTrueFalse,types}) {
 
       </div>
 
-      <ul className='menu_list flex   w-full ml-10 text-sm flex-wrap  '>
+      <ul className='menu_list flex   w-full ml-10 text-sm flex-wrap  items-center'>
 
         { data?
           data.map((item,index)=>{
@@ -36,7 +36,7 @@ function Navbar({data , toggleTrueFalse,types}) {
               <li key={index} className="mr-4 hover:text-emerald-300 transition group relative">
                 <Link 
                   to={item.type}
-                  className={pathname.substring(1) === item.type ? 'font-bold text-emerald-300 text-lg ' : 'whitespace-nowrap flex  items-center    '}
+                  className={pathname.substring(1) === item.type ? 'font-bold text-emerald-300  flex items-center' : 'whitespace-nowrap flex  items-center    '}
                 >
                   {item.chtName}
                   {item.children &&   <HiChevronDown className='ml-1'/> }

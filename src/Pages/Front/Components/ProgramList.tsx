@@ -23,7 +23,7 @@ function ProgramList( {data,type,title} :Props) {
 								<div key={item.id} className='group aspect-[1140/585] w-full bg-cover bg-no-repeat bg-center transition-all cursor-pointer brightness-90  hover:brightness-110'
 									// style={{backgroundImage: `url(${process.env.PUBLIC_URL + '/images/' + item})`}}
 								>	
-									<Link to={(type === 'newest' ? '/watch?v=' +item.id : '/watchvideos/'+item.id)}>
+									<Link to={(type === 'newest' ? '/watch/' +item.id : '/watchvideos/'+item.id)}>
 										<div className=' aspect-[1140/585] rounded-lg  overflow-hidden'>
 											<img src={imgpath ? imgpath : process.env.PUBLIC_URL+'/images/'+'img.jpeg'} alt="" className='w-full h-full object-cover transition  duration-300  group-hover:scale-110'/>
 										</div>
