@@ -57,23 +57,23 @@ function DisplayBoard({video_id}:Props) {
       <div className='my-10'>留言評論區</div>
       
         <form onSubmit={handleSubmit(onSubmit)}>
-         <div className='flex gap-5 mt-5'>
+         <div className='flex flex-col gap-5 mt-5'>
             <input
               type="text"
               {...register("user", { required: true })} 
-              className="w-1/5 text-zinc-200 text-sm rounded-md p-2 bg-zinc-700"
-              placeholder="暱稱"
+              className="w-2/5 text-zinc-200 text-sm rounded-md p-2 bg-zinc-700"
+              placeholder="請輸入暱稱"
             />
             <input
               type="text"
               {...register("text", { required: true })} 
               className="w-full text-zinc-800 text-sm p-2 bg-[#0c0d11] border-b border-zinc-400"
-              placeholder="訊息"
+              placeholder="留言訊息"
             />
          </div>
 
           <div className='w-20 ml-auto'>
-            <input type="submit" value="送出" className='w-full text-white px-4 py-2 mt-2 bg-gray-700 rounded-md'></input>
+            <input type="submit" value="送出" className='w-full text-white text-sm px-4 py-2 mt-2 bg-gray-700 rounded-md'></input>
           </div>
 
 

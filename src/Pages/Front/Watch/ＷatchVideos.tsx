@@ -28,40 +28,32 @@ function ＷatchVideos() {
 		columnCount: 4,
 		rowCount: 4,
 		styles: {
-			main: {paddingLeft: '20px'},
+			main: {paddingLeft: '0px'},
 			playback: {borderRadius: '8px'},
-			trackControl: {marginTop: '10px', height: '48px'}
+			trackControl: {marginTop: '0px', height: '48px'}
 		},
 		colors: {
 		  highlight: '#6EE7B7',
 		  main: 'white',
-		  sub: '#6EE7B7',
-		  base: '#475569'
+		  sub: '#ffffff50',
+		  base: '#00000000'
 		},
 		onVideoPlaying: (videoTime: number) => console.log(videoTime)
 	}
   return (
-    <div className='w-full flex flex-col mx-auto mt-15  h-[calc(100vh-84px)] '>
+    <div className='w-full flex   mx-auto mt-15   items-start gap-5 mt-10'>
 
-				<div className='streamingvieos w-full grow'>
-					<div className='  relative aspect-video flex flex-col'>
-						{/* <ReactPlayer
-							url={data?.video_url}
-							width="100%"
-							height="100%"
-							playing
-							controls
-						/> */}
-						{data && <MultiViewsDumbPlayer {...MultiViewsDumbPlayerSettings} />}
-
-						
+				
+				{data &&
+					<div className='streamingvieos mx-auto w-10/12 aspect-[14/10] p-5'>
+					<MultiViewsDumbPlayer {...MultiViewsDumbPlayerSettings} />
 					</div>
-					<div className='bg-zinc-800 w-full  flex justify-center items-center  box-border grow h-20'> View 360 Controller</div>
+					
+				}
 
-				</div>
-				<div className='w-8/12 mx-auto '>
-					<div className='mt-10 border-b pb-10'>
-						<div className='text-white text-3xl font-normal mb-1'>{data?.title}</div>
+				<div className='w-4/12  p-5'>
+					<div className='mt-5 border-b border-zinc-400 pb-10'>
+						<div className='text-white text-2xl font-normal mb-1'>{data?.title}</div>
 						<div className='text-zinc-200 text-base font-light leading-2 mt-5'>
 							<div>{data?.eng_title}</div>
 							<div>{data?.years}．{data?.total_duration} ．{data?.resolution}</div>
