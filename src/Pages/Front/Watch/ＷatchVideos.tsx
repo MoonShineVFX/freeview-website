@@ -41,18 +41,18 @@ function ＷatchVideos() {
 		onVideoPlaying: (videoTime: number) => console.log(videoTime)
 	}
   return (
-    <div className='w-full flex   mx-auto mt-15   items-start gap-5 mt-10'>
+    <div className='w-full flex lg:flex-col flex-row  mx-auto mt-15   items-start gap-5 mt-10 lg:mt-1'>
 
 				
 				{data &&
-					<div className='streamingvieos mx-auto w-10/12 aspect-[14/10] p-5'>
+					<div className='streamingvieos mx-auto w-10/12 aspect-[14/10] p-5 lg:w-full lg:aspect-[1/1]'>
 					<MultiViewsDumbPlayer {...MultiViewsDumbPlayerSettings} />
 					</div>
 					
 				}
 
-				<div className='w-4/12  p-5'>
-					<div className='mt-5 border-b border-zinc-400 pb-10'>
+				<div className='w-4/12  p-5 lg:mx-auto lg:w-full'>
+					<div className='mt-5 border-b border-zinc-400 pb-10 lg:mt-0'>
 						<div className='text-white text-2xl font-normal mb-1'>{data?.title}</div>
 						<div className='text-zinc-200 text-base font-light leading-2 mt-5'>
 							<div>{data?.eng_title}</div>

@@ -17,6 +17,7 @@ import Watch from './Pages/Front/Watch/Watch';
 import WatchVideos from './Pages/Front/Watch/ＷatchVideos'
 import WatchVodAr from './Pages/Front/Watch/WatchVodAr'
 import WatchTest from './Pages/Front/Watch/WatchTest';
+import Watch5gTest from './Pages/Front/Watch/Watch5gTest';
 import Newest from './Pages/Front/Newest/Newest';
 import Videos from './Pages/Front/Videos/Videos';
 import AdminHome from './Pages/Back/Home'
@@ -40,6 +41,7 @@ function App() {
             <Route path="/"  element={ <PlayPageLayout/>}> 
               <Route path="stream" element={<Watch />} />
               <Route path="test" element={<WatchTest />} />
+              <Route path="5gtest" element={<Watch5gTest />} />
               <Route path="vodar" element={<WatchVodAr />} />
               <Route path="WatchVideos/:videoid" element={<WatchVideos />} />
               
