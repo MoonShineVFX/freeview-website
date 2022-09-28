@@ -18,10 +18,10 @@ function Videos({data,type} :Props) {
   return (
     <div >
 			<StaticHeader />
-			<div className='w-10/12 mx-auto pt-20'>
-				<h1 className='text-4xl font-semibold '>熱門演出(VOD)</h1>
+			<div className='w-10/12 mx-auto pt-20 lg:pt-10'>
+				<h1 className='text-3xl font-semibold lg:text-xl '>熱門演出(VOD)</h1>
 
-				<div className='grid grid-cols-3 gap-8 mt-14 md:grid-cols-1'>
+				<div className='grid grid-cols-3 gap-8 mt-14 md:grid-cols-1 lg:mt-4'>
 					{
 						work.map((item,index)=>{
 							const { title,eng_title,total_duration,resolution,years, imgpath} = item

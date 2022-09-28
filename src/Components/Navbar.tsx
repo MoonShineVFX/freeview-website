@@ -17,7 +17,7 @@ function Navbar({data , toggleTrueFalse,types}) {
     window.addEventListener('scroll', listenToScroll)
   },[])
   return (
-    <div id="navbar" className={ "flex items-center text-white py-3 px-6  w-full bg-[#00000060] z-50 site-menu xs:hidden  " + (types === 'play' ? ' relative drop-shadow-lg ' : 'fixed ' ) + (navbarBg && ' bg-[#000000dd]')}>
+    <div id="navbar" className={ "flex lg:flex-col items-center text-white py-3 px-6  w-full bg-[#00000060] z-50 site-menu xs:hidden  " + (types === 'play' ? ' relative drop-shadow-lg ' : 'fixed ' ) + (navbarBg && ' bg-[#000000dd]')}>
       <div className="logo font-bold">
         <Link
           to="/"

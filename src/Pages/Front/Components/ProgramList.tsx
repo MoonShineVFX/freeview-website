@@ -11,11 +11,11 @@ function ProgramList( {data,type,title} :Props) {
   return (
     <div className='mt-10 mb-20'>
 				<div className='flex justify-between items-center mb-5'>
-					<div className='text-2xl '>{title}</div>
+					<div className='text-2xl lg:text-xl'>{title}</div>
 					<a href={'/'+type} className='text-sm text-zinc-200 py-2 px-3 bg-zinc-800 rounded-lg flex justify-center items-center hover:bg-zinc-10'>更多</a>
 				</div>
         
-				<div className='grid grid-cols-3 gap-5 md:grid-cols-2'>
+				<div className='grid grid-cols-3 gap-5 md:grid-cols-1'>
 					{
 						data.slice(0, 7).map((item,index)=>{
 							const { title,eng_title,total_duration,resolution,years, imgpath} = item

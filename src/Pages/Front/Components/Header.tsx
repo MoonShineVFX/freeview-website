@@ -22,7 +22,7 @@ function Header() {
           headerData.map((item,index)=>{
             return(
               <SwiperSlide key={index} className="relative">
-                <div className='w-full h-[385px] mx-auto  relative '>
+                <div className='w-full h-[385px] mx-auto  relative lg:h-[300px]'>
                   {/* <img src={process.env.PUBLIC_URL+'/images/'+item} alt="" className='rel'/> */}
                   <div className='w-full h-full bg-no-repeat bg-center bg-cover relative '
                     style={{backgroundImage: `url(${process.env.PUBLIC_URL + '/images/' + item.img})`}}> 
@@ -30,9 +30,9 @@ function Header() {
                     <div className='absolute inset-0 bg-gradient-to-t from-[#0c0d11]  z-10'></div>
                     {/* <div className='absolute inset-0 bg-[#00000060] z-10'></div> */}
                   </div>
-                  <div className=' absolute bottom-16 left-16 z-10 '>
+                  <div className=' absolute bottom-16 left-16 z-10 lg:left-8'>
                     <div className='text-xs px-4 py-2 rounded-3xl bg-slate-800 text-zinc-300 w-auto mb-3 inline-block'>{item.types}</div>
-                    <div className='text-3xl font-normal mb-2'>{item.title}</div>
+                    <div className='text-3xl font-normal mb-2 lg:text-xl'>{item.title}</div>
                     <div className='text-zinc-200 text-sm font-light leading-6'>
                       <div>{item.eng_title}</div>
                       {/* <div>2022．139分鐘 ．4K畫質</div> */}
