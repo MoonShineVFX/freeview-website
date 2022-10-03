@@ -14,15 +14,15 @@ function WatchTest() {
 		columnCount: 4,
 		rowCount: 4,
 		styles: {
-			main: {paddingLeft: '20px'},
+			main: {paddingLeft: '0px'},
 			playback: {borderRadius: '8px'},
-			trackControl: {marginTop: '10px', height: '48px'}
+			trackControl: {marginTop: '0px', height: '48px'}
 		},
 		colors: {
 		  highlight: '#6EE7B7',
 		  main: 'white',
-		  sub: '#6EE7B7',
-		  base: '#475569'
+		  sub: '#ffffff50',
+		  base: '#00000000'
 		},
 		onVideoPlaying: (videoTime: number) => console.log(videoTime)
 	}
