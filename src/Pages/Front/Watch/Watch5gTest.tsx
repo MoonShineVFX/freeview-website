@@ -9,7 +9,7 @@ import {ChatuserContext} from '../../../Components/context/ChatuserProvider'
 function Watch5gTest() {
 	const MultiViewsDumbPlayerSettings = {
 		url: 'stream', // an-dance.mp4 (vod) or an-dance-low (live)
-		host: 'http://203.69.143.114:8080',
+		host: 'http://203.69.143.114:8081',
 		core: MultiViewsDumbPlayerCore.MEDIA_SOURCE_EXTENSION, // TILES for vod, MSE for live
 		columnCount: 4,
 		rowCount: 4,
