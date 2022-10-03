@@ -6,6 +6,7 @@ interface Props{
   },
   text:string,
   displayname:string
+  titlecolor:string
 }
 const formatDate = (date)=>{
     let formattedDate = '';
@@ -15,7 +16,7 @@ const formatDate = (date)=>{
     }
     return formattedDate
   }
-function Message({createdAt ,text ,displayname}:Props) {
+function Message({createdAt ,text ,displayname,titlecolor}:Props) {
   if (!text) return null;
 
   
@@ -24,7 +25,7 @@ function Message({createdAt ,text ,displayname}:Props) {
        <div>
         <div className="flex items-center mb-1">
           {displayname ? (
-            <p className="mr-2 text-blue-500 font-semibold ">{displayname}</p>
+            <p className={'mr-2 font-semibold '} style={{ color : (titlecolor ? titlecolor  : '#42b2db')  }}>{displayname}</p>
           ) : null}
           {createdAt?.seconds ? (
             <span className="text-zinc-300 text-xs">

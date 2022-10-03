@@ -8,8 +8,7 @@ function Channel(props:{user:string }) {
   const { register, handleSubmit, watch, formState: { errors } ,reset} = useForm();
   const [newMessage, setNewMessage] = useState('');
   const [messages,setMessages] = useState([])
-  const [user, setUser] = useState("")
-  const { currentUser,logout } = useContext(ChatuserContext);
+  const { currentUser,currentTitleColor,logout } = useContext(ChatuserContext);
   const bottomListRef = useRef();
 	const onLogout = (e) => {
     e.preventDefault();
@@ -21,7 +20,9 @@ function Channel(props:{user:string }) {
       "text": data.text,
       "createdAt": serverTimestamp(),
       "uid":currentUser,
-      "displayname":currentUser
+      "displayname":currentUser,
+      "titlecolor":currentTitleColor
+      
     }
     createMessage(currentData,function(res){
       console.log(res)

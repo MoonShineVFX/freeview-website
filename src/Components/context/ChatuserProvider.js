@@ -11,16 +11,20 @@ const initialState = {
 export const ChatuserProvider = props =>{
   const [state, setState] = useSetState(initialState);
   const setLoginSuccess = (isLoggedIn) => setState({isLoggedIn});
-  const [currentUser , setCurrentUser] = useState('')
+  const [currentUser , setCurrentUser] = useState("")
+  const [currentTitleColor , setCurrentTitleColor] = useState("")
   const [pending, setPending] = useState(true);
 
-  const login = (user) =>{
+  const login = (userdata) =>{
+    console.log("userInfo",userdata)
+    const {username,titlecolor} =userdata
     setLoginSuccess(true);
-    setCurrentUser(user)
+    setCurrentUser(username)
+    setCurrentTitleColor(titlecolor)
   }
   const logout =()=>{
     setLoginSuccess(false);
-    setCurrentUser('')
+    setCurrentUser({})
   }
 
   // useEffect(()=>{
@@ -33,7 +37,7 @@ export const ChatuserProvider = props =>{
 
   return (
     <ChatuserContext.Provider
-    value={{state,currentUser,login,logout}}
+    value={{state,currentUser,currentTitleColor,login,logout}}
     >
       {props.children}
 
