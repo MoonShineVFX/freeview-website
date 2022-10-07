@@ -18,7 +18,7 @@ function LoginChannel() {
     }
     const userdata ={
       username: data.user,
-      titlecolor: randomColor
+      titlecolor: generateLightColorHex()
     }
     login(userdata)
     setUserInfo(userdata)

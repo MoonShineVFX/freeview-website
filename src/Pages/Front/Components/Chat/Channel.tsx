@@ -27,14 +27,18 @@ function Channel(props:{user:string }) {
     createMessage(currentData,function(res){
       console.log(res)
     })
+
     reset()
-    bottomListRef.current.scrollIntoView({ behavior: 'smooth' });
+    
 
   };
   useEffect(()=>{
 		getMessage((res)=>{
 			console.log(res)
 			setMessages(res)
+      setTimeout(()=>{
+        bottomListRef.current.scrollIntoView({ behavior: 'smooth' });
+      },1000)
 		})
 	},[])
   return (
