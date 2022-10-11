@@ -22,7 +22,7 @@ function WatchVodAr() {
 		  highlight: '#6EE7B7',
 		  main: 'white',
 		  sub: '#ffffff50',
-		  base: '#00000000'
+		  base: '#33000000'
 		},
 		onVideoPlaying: (videoTime: number) => console.log(videoTime)
 	}

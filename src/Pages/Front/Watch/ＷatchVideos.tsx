@@ -36,23 +36,23 @@ function ＷatchVideos() {
 		  highlight: '#6EE7B7',
 		  main: 'white',
 		  sub: '#ffffff50',
-		  base: '#00000000'
+		  base: '#33000000'
 		},
 		onVideoPlaying: (videoTime: number) => console.log(videoTime)
 	}
   return (
-    <div className='w-full flex lg:flex-col flex-row  mx-auto mt-15   items-start gap-5 mt-10 lg:mt-1'>
+    <div className='w-full flex flex-col md:flex-row  mx-auto  items-start gap-5  md:mt-3'>
 
-				
 				{data &&
-					<div className='streamingvieos mx-auto w-10/12 aspect-[14/10] p-5 lg:w-full lg:aspect-[1/1]'>
+					<div className='streamingvieos mx-full w-full aspect-[1/1] p-5 md:w-10/12 md:aspect-[14/10] relative'>
 					<MultiViewsDumbPlayer {...MultiViewsDumbPlayerSettings} />
+					<div className='ar_btn absolute right-8 bottom-[20%] text-2xl font-semibold italic text-zinc-200 hover:text-white cursor-pointer drop-shadow-2xl' >AR</div>
 					</div>
 					
 				}
 
-				<div className='w-4/12  p-5 lg:mx-auto lg:w-full'>
-					<div className='mt-5 border-b border-zinc-400 pb-10 lg:mt-0'>
+				<div className='w-full  p-5 lg:mx-auto lg:w-4/12'>
+					<div className='mt-0 border-b border-zinc-400 pb-10 md:mt-5'>
 						<div className='text-white text-2xl font-normal mb-1'>{data?.title}</div>
 						<div className='text-zinc-200 text-base font-light leading-2 mt-5'>
 							<div>{data?.eng_title}</div>

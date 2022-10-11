@@ -17,7 +17,7 @@ function Navbar({data , toggleTrueFalse,types}) {
     window.addEventListener('scroll', listenToScroll)
   },[])
   return (
-    <div id="navbar" className={ "flex lg:flex-col items-center text-white py-3 px-6  w-full bg-[#00000060] z-50 site-menu xs:hidden  " + (types === 'play' ? ' relative drop-shadow-lg ' : 'fixed ' ) + (navbarBg && ' bg-[#000000dd]')}>
+    <div id="navbar" className={ " flex  items-center text-white py-3 px-6  w-full bg-[#00000060] z-50 site-menu   " + (types === 'play' ? ' relative drop-shadow-lg ' : 'fixed ' ) + (navbarBg && ' bg-[#000000dd]')}>
       <div className="logo font-bold">
         <Link
           to="/"
@@ -28,12 +28,12 @@ function Navbar({data , toggleTrueFalse,types}) {
 
       </div>
 
-      <ul className='menu_list flex   w-full ml-10 text-sm flex-wrap  items-center'>
+      <ul className='menu_list flex w-full ml-4 text-sm flex-wrap items-center md:ml-10 '>
 
         { data?
           data.map((item,index)=>{
             return(
-              <li key={index} className="mr-4 hover:text-emerald-300 transition group relative">
+              <li key={index} className={"mr-4 hover:text-emerald-300 transition group relative" + (item.display === '1' ? ' ' : ' hidden')}>
                 <Link 
                   to={item.type}
                   className={pathname.substring(1) === item.type ? 'font-bold text-emerald-300  flex items-center' : 'whitespace-nowrap flex  items-center    '}
@@ -78,6 +78,11 @@ function Navbar({data , toggleTrueFalse,types}) {
           
         </li> */}
       </ul>
+      {/* <ul className='flex md:hidden ml-4 gap-3'>
+        <li><Link to="5gtest">5G直播</Link> </li>
+        <li><Link to="watchvideos/l7oozmjf">VOD</Link> </li>
+        <li><Link to="videos">VOD List</Link> </li>
+      </ul> */}
   
 
 

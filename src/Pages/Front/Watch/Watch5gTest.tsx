@@ -22,7 +22,7 @@ function Watch5gTest() {
 		  highlight: '#6EE7B7',
 		  main: 'white',
 		  sub: '#ffffff50',
-		  base: '#00000000'
+		  base: '#33000000'
 		},
 		onVideoPlaying: (videoTime: number) => console.log(videoTime)
 	}
@@ -30,21 +30,25 @@ function Watch5gTest() {
 	const { state } = useContext(ChatuserContext);
 
   return (
-    <div className='w-full flex mx-auto mt-15 overflow-hidden h-[calc(100vh-84px)]'>
-			<div className='streamingvieos w-full grow'>
+    <div className='w-full flex mx-auto mt-15  flex-col md:flex-row items-start'>
+			<div className='streamingvieos w-full aspect-[1/1]  md:w-11/12 md:aspect-[14/10]  relative'>
 				{/*<div className='relative aspect-video flex flex-col'>*/}
 
 				<MultiViewsDumbPlayer {...MultiViewsDumbPlayerSettings} />
 
 				{/*</div>*/}
 				{/*<div className='bg-zinc-800 w-full h-auto flex justify-center items-center  box-border grow'> View 360 Controller</div>*/}
+				<div className='ar_btn absolute right-8 bottom-[20%] text-2xl font-semibold italic text-zinc-200 hover:text-white cursor-pointer drop-shadow-2xl' >AR</div>
 			</div>
-			{
-				!state.isLoggedIn ?
-				<LoginChannel />
-				:
-				<Channel />
-			}
+			<div className='w-full lg:mx-auto lg:w-4/12 h-screen'>
+				{
+					!state.isLoggedIn ?
+					<LoginChannel />
+					:
+					<Channel />
+				}
+			</div>
+
 
 			
 

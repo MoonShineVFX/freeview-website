@@ -31,7 +31,7 @@ function LoginChannel() {
 
 	},[])
   return (
-    <div className='chat bg-zinc-800 w-[25%] overflow-auto flex flex-col '>
+    <div className='chat bg-zinc-800  overflow-auto flex flex-col h-full '>
       <div className='flex flex-col justify-center items-center py-40 '>
         <div className='mb-4 text-sm text-zinc-200'>聊天室入口</div>
         <form onSubmit={handleSubmit(onSubmit)}>
