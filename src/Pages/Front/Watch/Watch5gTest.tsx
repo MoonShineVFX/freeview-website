@@ -30,17 +30,17 @@ function Watch5gTest() {
 	const { state } = useContext(ChatuserContext);
 
   return (
-    <div className='w-full flex mx-auto mt-15  flex-col md:flex-row items-start'>
-			<div className='streamingvieos w-full aspect-[1/1]  md:w-10/12 md:aspect-[14/10]  relative  max-w-[1300px]'>
+    <div className='w-full flex mx-auto mt-15  flex-col lg:flex-row items-start'>
+			<div className='streamingvieos w-full aspect-[1/1] md:aspect-[15/10]  lg:w-10/12 lg:aspect-[14/10]  relative  max-h-[93vh]'>
 				{/*<div className='relative aspect-video flex flex-col'>*/}
 
 				<MultiViewsDumbPlayer {...MultiViewsDumbPlayerSettings} />
 
 				{/*</div>*/}
 				{/*<div className='bg-zinc-800 w-full h-auto flex justify-center items-center  box-border grow'> View 360 Controller</div>*/}
-				<div className='ar_btn absolute right-8 bottom-[20%] text-2xl font-semibold italic text-zinc-200 hover:text-white cursor-pointer drop-shadow-2xl' >AR</div>
+				<div className='ar_btn absolute right-4 lg;right-8 top-[70%] text-xl lg:top-[80%] lg:text-2xl font-semibold italic text-zinc-200 hover:text-white cursor-pointer drop-shadow-2xl' >AR</div>
 			</div>
-			<div className='w-full lg:mx-auto lg:w-5/12 max-h-screen'>
+			<div className='w-full lg:mx-auto lg:w-3/12 max-h-screen'>
 				{
 					!state.isLoggedIn ?
 					<LoginChannel />
