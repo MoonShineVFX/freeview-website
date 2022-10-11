@@ -42,7 +42,7 @@ function Channel(props:{user:string }) {
 		})
 	},[])
   return (
-    <div className='chat bg-black overflow-auto flex flex-col h-screen' >
+    <div className='chat bg-black overflow-auto flex flex-col h-[95vh]' >
       <div className='text-zinc-500 h-8 text-center leading-4 tracking-wide font-semibold border-b border-zinc-500  '>
         你好！歡迎使用實況聊天室
       </div>
