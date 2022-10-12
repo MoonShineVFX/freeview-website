@@ -44,7 +44,7 @@ function ＷatchVideos() {
     <div className='w-full flex flex-col lg:flex-row  mx-auto  items-start gap-5  md:mt-3'>
 
 				{data &&
-					<div className='streamingvieos  w-full aspect-[1/1] md:aspect-[15/10]  lg:w-10/12 lg:aspect-[14/10] relative max-h-[93vh]'>
+					<div className='streamingvieos  w-full aspect-[1/1] md:aspect-[15/10]  lg:w-10/12 lg:aspect-[14/10] relative max-h-[93vh]' style={{touchAction: 'none'}}>
 					<MultiViewsDumbPlayer {...MultiViewsDumbPlayerSettings} />
 					<div className='ar_btn absolute right-4 lg;right-8 top-[75%] text-xl lg:top-[75%] lg:text-2xl font-semibold italic text-zinc-200 hover:text-white cursor-pointer drop-shadow-2xl' >AR</div>
 					</div>

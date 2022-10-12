@@ -31,7 +31,7 @@ function Watch5gTest() {
 
   return (
     <div className='w-full flex mx-auto mt-15  flex-col lg:flex-row items-start'>
-			<div className='streamingvieos w-full aspect-[1/1] md:aspect-[15/10]  lg:w-10/12 lg:aspect-[14/10]  relative  max-h-[93vh]'>
+			<div className='streamingvieos w-full aspect-[1/1] md:aspect-[15/10]  lg:w-10/12 lg:aspect-[14/10]  relative  max-h-[93vh]' style={{touchAction: 'none'}}>
 				{/*<div className='relative aspect-video flex flex-col'>*/}
 
 				<MultiViewsDumbPlayer {...MultiViewsDumbPlayerSettings} />
