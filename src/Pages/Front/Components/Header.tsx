@@ -30,7 +30,7 @@ function Header() {
                     <div className='absolute inset-0 bg-gradient-to-t from-[#0c0d11]  z-10'></div>
                     {/* <div className='absolute inset-0 bg-[#00000060] z-10'></div> */}
                   </div>
-                  <div className=' absolute bottom-16 left-8 z-10 md:left-8'>
+                  <div className=' absolute bottom-16 left-8 z-10 md:left-8 hidden'>
                     <div className='text-xs px-4 py-2 rounded-3xl bg-slate-800 text-zinc-300 w-auto mb-3 inline-block'>{item.types}</div>
                     <div className='text-xl font-normal mb-2 md:text-2xl'>{item.title}</div>
                     <div className='text-zinc-200 text-sm font-light leading-6'>
