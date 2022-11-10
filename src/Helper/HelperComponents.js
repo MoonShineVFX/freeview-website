@@ -23,37 +23,23 @@ export const fakeData =  [
   export const headerData = [
     {
       "id":"1",
-      "img":'img.jpeg',
-      "title":"奇異博士五:多重宇宙三",
+      "img":'banner1.png',
+      "title":"多重宇宙劇場",
       "eng_title":"Doctor Strange: Multiverse",
-      "types":"即將上映"
+      "types":"2023春 即將上映"
     },
     { 
       "id":"2",
-      "img":'img.jpeg',
-      "title":"奇異博士五:多重宇宙三",
+      "img":'banner2.png',
+      "title":"多重宇宙趴",
       "eng_title":"Doctor Strange: Multiverse",
-      "types":"2023 即將上映"
+      "types":"2023春 即將上映"
     },
     {
       "id":"3",
-      "img":'img.jpeg',
-      "title":"奇異博士五:多重宇宙三",
+      "img":'banner3.png',
+      "title":"多重宇宙演唱會",
       "eng_title":"Doctor Strange: Multiverse",
       "types":"2024 即將上映"
-    },
-    {
-      "id":"4",
-      "img":'img.jpeg',
-      "title":"奇異博士五:多重宇宙三",
-      "eng_title":"Doctor Strange: Multiverse",
-      "types":"2025 即將上映"
-    },
-    {
-      "id":"5",
-      "img":'img.jpeg',
-      "title":"奇異博士五:多重宇宙三",
-      "eng_title":"Doctor Strange: Multiverse",
-      "types":"2026 即將上映"
     }
   ]
