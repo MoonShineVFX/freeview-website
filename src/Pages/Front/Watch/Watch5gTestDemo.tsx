@@ -10,7 +10,7 @@ function Watch5gTestDemo() {
 	const MultiViewsDumbPlayerSettings = {
 		url: '5g_demo_stream.mp4', // an-dance.mp4 (vod) or an-dance-low (live)
 		host: 'https://stream.moonshine.tw',
-		core: MultiViewsDumbPlayerCore.MEDIA_SOURCE_EXTENSION, // TILES for vod, MSE for live
+		core: MultiViewsDumbPlayerCore.TILES, // TILES for vod, MSE for live
 		columnCount: 4,
 		rowCount: 4,
 		styles: {
