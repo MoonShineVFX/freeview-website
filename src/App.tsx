@@ -16,6 +16,7 @@ import Home from './Pages/Front/Home/Home';
 import Watch from './Pages/Front/Watch/Watch';
 import WatchVideos from './Pages/Front/Watch/ＷatchVideos'
 import WatchVodAr from './Pages/Front/Watch/WatchVodAr'
+import WatchArVideos from './Pages/Front/Watch/ＷatchArVideos'
 import WatchTest from './Pages/Front/Watch/WatchTest';
 import Watch5gTest from './Pages/Front/Watch/Watch5gTest';
 import Newest from './Pages/Front/Newest/Newest';
@@ -43,7 +44,8 @@ function App() {
               <Route path="test" element={<WatchTest />} />
               <Route path="5gtest" element={<Watch5gTest />} />
               <Route path="vodar" element={<WatchVodAr />} />
-              <Route path="WatchVideos/:videoid" element={<WatchVideos />} />
+              <Route path="watcharvideos/:videoid" element={<WatchArVideos />} />
+              <Route path="watchvideos/:videoid" element={<WatchVideos />} />
               
             </Route>
             

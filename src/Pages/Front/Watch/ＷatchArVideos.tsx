@@ -1,12 +1,12 @@
 import React,{useState,useEffect} from 'react'
 import ReactPlayer from 'react-player';
 import {MultiViewsDumbPlayer, MultiViewsDumbPlayerCore} from 'multi-views-dumb-player';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 //import msgboard
 import DisplayBoard from '../Components/Ｍsgboard/DisplayBoard'
 import {getWorkById} from '../../../Helper/getfunction'
 import { Video } from '../../../types'
-function ＷatchVideos() {
+function ＷatchArVideos() {
 	const {videoid} = useParams();
 	const [data ,setData] = useState<Video | null >(null)
 	console.log(videoid)
@@ -22,11 +22,12 @@ function ＷatchVideos() {
 	},[])
 
 	const MultiViewsDumbPlayerSettings = {
-		url: data?.video_url, // an-dance.mp4 (vod) or an-dance-low (live)
-		host: data?.video_host,
+		url: "5g_ar_demo_stream.mp4", // an-dance.mp4 (vod) or an-dance-low (live)
+		host: "https://storage.googleapis.com/freeview-data",
 		core: MultiViewsDumbPlayerCore.TILES, // TILES for vod, MSE for live
-		columnCount: 4,
-		rowCount: 4,
+		columnCount: 2,
+		rowCount: 2,
+		cameraCount: 3, 
 		styles: {
 			main: {paddingLeft: '0px'},
 			playback: {borderRadius: '8px'},
@@ -46,7 +47,7 @@ function ＷatchVideos() {
 				{data &&
 					<div className='streamingvieos  w-full aspect-[1/1] md:aspect-[15/10]  lg:w-10/12 lg:aspect-[14/10] relative max-h-[93vh]' style={{touchAction: 'none'}}>
 					<MultiViewsDumbPlayer {...MultiViewsDumbPlayerSettings} />
-					<Link to="/watcharvideos/l7oozmjf" className='ar_btn absolute right-4 lg;right-8 top-[75%] text-xl lg:top-[75%] lg:text-2xl font-semibold italic text-zinc-200 hover:text-white cursor-pointer drop-shadow-2xl' >AR</Link>
+					<div className='ar_btn absolute right-4 lg;right-8 top-[75%] text-xl lg:top-[75%] lg:text-2xl font-semibold italic text-zinc-200 hover:text-white cursor-pointer drop-shadow-2xl' >AR</div>
 					</div>
 					
 				}
@@ -78,4 +79,4 @@ function ＷatchVideos() {
 }
 
 
-export default ＷatchVideos
+export default ＷatchArVideos
