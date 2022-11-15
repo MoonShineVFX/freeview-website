@@ -52,7 +52,7 @@ function ＷatchArVideos() {
 					
 				}
 
-				<div className='w-full p-5 lg:p-0  lg:mx-auto lg:w-3/12'>ß
+				<div className='w-full p-5 lg:p-0  lg:mx-auto lg:w-3/12'>
 					<div className='mt-0 border-b border-zinc-400 pb-10 md:mt-5'>
 						<div className='text-white text-2xl font-normal mb-1'>{data?.title}</div>
 						<div className='text-zinc-200 text-base font-light leading-2 mt-5'>

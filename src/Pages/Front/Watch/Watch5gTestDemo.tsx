@@ -1,7 +1,7 @@
 import React,{useState,useEffect,useContext} from 'react'
 // import ReactPlayer from 'react-player';
 import {MultiViewsDumbPlayer, MultiViewsDumbPlayerCore} from 'multi-views-dumb-player';
-
+import { useParams, Link } from 'react-router-dom';
 //chatroom
 import LoginChannel from '../Components/Chat/LoginChannel';
 import Channel from '../Components/Chat/Channel';
@@ -38,7 +38,7 @@ function Watch5gTestDemo() {
 
 				{/*</div>*/}
 				{/*<div className='bg-zinc-800 w-full h-auto flex justify-center items-center  box-border grow'> View 360 Controller</div>*/}
-				<div className='ar_btn absolute right-4 lg;right-8 top-[70%] text-xl lg:top-[80%] lg:text-2xl font-semibold italic text-zinc-200 hover:text-white cursor-pointer drop-shadow-2xl' >AR</div>
+				<Link to="/watcharvideos/l7oozmjf" className='ar_btn absolute right-4 lg;right-8 top-[70%] text-xl lg:top-[80%] lg:text-2xl font-semibold italic text-zinc-200 hover:text-white cursor-pointer drop-shadow-2xl' >AR</Link>
 			</div>
 			<div className='w-full lg:mx-auto lg:w-3/12 max-h-screen'>
 				{
