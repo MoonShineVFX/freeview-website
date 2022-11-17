@@ -14,7 +14,7 @@
     "firebase": "^9.9.2",
     "framer-motion": "^7.1.0",
     "i18next": "^21.9.0",
-    "multi-views-dumb-player": "^0.0.15",
+    "multi-views-dumb-player": "^0.0.16",
     "react": "^18.2.0",
     "react-confirm-alert": "^3.0.6",
     "react-dom": "^18.2.0",
