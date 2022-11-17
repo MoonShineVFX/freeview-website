@@ -44,6 +44,7 @@ function App() {
               <Route path="stream" element={<Watch />} />
               <Route path="test" element={<WatchTest />} />
               <Route path="5gtest" element={<Watch5gTestDemo />} />
+              <Route path="live" element={<Watch5gTest />} />
               <Route path="vodar" element={<WatchVodAr />} />
               <Route path="watcharvideos/:videoid" element={<WatchArVideos />} />
               <Route path="watchvideos/:videoid" element={<WatchVideos />} />
